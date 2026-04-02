@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "experience": "Experiência",
+    "projects": "Projetos"
+  },
+  "hero": {
+    "title": "Desenvolvedor Full Stack",
+    "subtitle": "Campinas, SP · Sistemas de Informação — PUC Campinas",
+    "description": "Estudante de Sistemas de Informação em busca de oportunidades em Desenvolvimento de Software. Apaixonado por resolver problemas com código e criar soluções que fazem a diferença.",
+    "resume": "Currículo"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Linguagens e ferramentas que domino",
+    "tools": "Ferramentas & Tecnologias",
+    "levels": {
+      "beginner": "Básico",
+      "intermediate": "Intermediário",
+      "advanced": "Avançado"
+    }
+  },
+  "experience": {
+    "title": "Experiência & Formação",
+    "subtitle": "Minha trajetória profissional e acadêmica",
+    "puc": {
+      "role": "Sistemas de Informação",
+      "org": "PUC Campinas",
+      "period": "2025 – Atual",
+      "description": "Previsão de conclusão: Dezembro de 2027"
+    },
+    "unicamp": {
+      "role": "Suporte de TI",
+      "org": "UNICAMP (FEF)",
+      "period": "Nov 2024 – Atual",
+      "description": "2 anos de experiência no mercado de tecnologia"
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Alguns dos meus trabalhos",
+    "portfolio": {
+      "name": "Portfólio Pessoal",
+      "description": "Este site! Feito com React, Vite e Tailwind CSS."
+    },
+    "comingSoon": "Em breve..."
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados",
+    "madeWith": "Feito com React + Tailwind"
+  }
+}

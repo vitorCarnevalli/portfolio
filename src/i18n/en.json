@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects"
+  },
+  "hero": {
+    "title": "Full Stack Developer",
+    "subtitle": "Campinas, SP · Information Systems — PUC Campinas",
+    "description": "Information Systems student seeking opportunities in Software Development. Passionate about solving problems with code and building solutions that make a difference.",
+    "resume": "Resume"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Languages and tools I work with",
+    "tools": "Tools & Technologies",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+  "experience": {
+    "title": "Experience & Education",
+    "subtitle": "My professional and academic journey",
+    "puc": {
+      "role": "Information Systems",
+      "org": "PUC Campinas",
+      "period": "2025 – Present",
+      "description": "Expected graduation: December 2027"
+    },
+    "unicamp": {
+      "role": "IT Support",
+      "org": "UNICAMP (FEF)",
+      "period": "Nov 2024 – Present",
+      "description": "2 years of experience in the tech industry"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some of my work",
+    "portfolio": {
+      "name": "Personal Portfolio",
+      "description": "This website! Built with React, Vite, and Tailwind CSS."
+    },
+    "comingSoon": "Coming soon..."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with React + Tailwind"
+  }
+}
