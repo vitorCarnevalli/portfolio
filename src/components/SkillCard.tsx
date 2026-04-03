@@ -35,7 +35,7 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
       }}
     >
       <div className="flex items-center gap-4">
-        {/* Radial progress */}
+        {/* Logo + radial progress */}
         <div className="relative w-20 h-20 flex-shrink-0">
           <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
             <circle
@@ -58,14 +58,7 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <motion.span
-              className="text-sm font-bold text-slate-700 dark:text-slate-300"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.5 + index * 0.1 }}
-            >
-              {skill.percentage}%
-            </motion.span>
+            <i className={`${skill.icon} text-2xl`} />
           </div>
         </div>
 
