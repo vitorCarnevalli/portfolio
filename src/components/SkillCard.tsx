@@ -20,9 +20,9 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
       viewport={{ once: true }}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className="group relative p-5 rounded-2xl glass hover:shadow-xl transition-shadow duration-300 cursor-default"

@@ -11,17 +11,17 @@ interface HeroProps {
 
 const staggerContainer = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0, delayChildren: 0 } },
 }
 
-const slideRight = {
-  hidden: { opacity: 0, x: -60 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const } },
+const fadeUp = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
 }
 
 const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
 }
 
 export function Hero({ t }: HeroProps) {
@@ -48,7 +48,7 @@ export function Hero({ t }: HeroProps) {
           >
             {/* Name */}
             <motion.h1
-              variants={slideRight}
+              variants={fadeUp}
               className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-6"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
@@ -60,17 +60,17 @@ export function Hero({ t }: HeroProps) {
             </motion.h1>
 
             {/* Subtitle */}
-            <motion.p variants={slideRight} className="text-lg text-slate-500 dark:text-slate-400 mb-4 max-w-md">
+            <motion.p variants={fadeUp} className="text-lg text-slate-500 dark:text-slate-400 mb-4 max-w-md">
               {t('hero.subtitle')}
             </motion.p>
 
             {/* Description */}
-            <motion.p variants={slideRight} className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg mb-10">
+            <motion.p variants={fadeUp} className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg mb-10">
               {t('hero.description')}
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={slideRight} className="flex flex-col sm:flex-row gap-3">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3">
               <a
                 href="https://github.com/vitorCarnevalli"
                 target="_blank"

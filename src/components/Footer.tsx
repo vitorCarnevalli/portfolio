@@ -59,10 +59,10 @@ export function Footer({ t }: FooterProps) {
 
             {/* Left: Identity + CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               <span
                 className="text-4xl font-black bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent block mb-4"
@@ -83,10 +83,10 @@ export function Footer({ t }: FooterProps) {
 
             {/* Right: Contact links */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.4 }}
               className="lg:flex lg:justify-end"
             >
               <div className="w-full lg:w-auto">
@@ -100,10 +100,10 @@ export function Footer({ t }: FooterProps) {
                       href={contact.href}
                       target={contact.href.startsWith('mailto') ? undefined : '_blank'}
                       rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: 0.2 + i * 0.07 }}
+                      transition={{ duration: 0.4 }}
                       whileHover={{ y: -2 }}
                       className="group flex items-center gap-3 px-4 py-3 glass rounded-xl transition-all duration-300"
                       onMouseEnter={(e) => {

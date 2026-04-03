@@ -15,10 +15,10 @@ export function Skills({ t }: SkillsProps) {
       <div className="max-w-7xl mx-auto">
         {/* Header — left aligned on desktop */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="mb-14 max-w-xl"
         >
           <h2

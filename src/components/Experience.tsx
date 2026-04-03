@@ -42,10 +42,10 @@ export function Experience({ t }: ExperienceProps) {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="mb-16 max-w-xl pl-5 border-l-2 border-amber-500"
         >
           <h2
@@ -64,10 +64,10 @@ export function Experience({ t }: ExperienceProps) {
           {items.map((item, i) => (
             <motion.div
               key={item.index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.4 }}
               whileHover={{ y: -4 }}
               className="group relative rounded-3xl glass overflow-hidden transition-shadow duration-300"
               onMouseEnter={(e) => {

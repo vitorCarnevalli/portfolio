@@ -13,10 +13,10 @@ export function Projects({ t }: ProjectsProps) {
 
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="mb-14 max-w-xl"
         >
           <h2
@@ -34,10 +34,10 @@ export function Projects({ t }: ProjectsProps) {
           {projects.map((project, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.4 }}
             >
               <TiltCard className="group">
                 <a
@@ -89,10 +89,10 @@ export function Projects({ t }: ProjectsProps) {
 
           {/* Coming soon */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4 }}
             className="glass rounded-2xl border-dashed border-2 border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center justify-center min-h-[280px]"
           >
             <motion.div
