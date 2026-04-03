@@ -48,6 +48,9 @@
   },
   "footer": {
     "rights": "All rights reserved",
-    "madeWith": "Made with React + Tailwind"
+    "madeWith": "Made with React + Tailwind",
+    "cta": "Let's talk?",
+    "ctaDesc": "Open to opportunities and collaborations. Feel free to reach out through any channel.",
+    "contactLabel": "Contact"
   }
 }
