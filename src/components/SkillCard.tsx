@@ -12,71 +12,63 @@ interface SkillCardProps {
 export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
-
   const percentage = levelPercentage[skill.level]
-  const circumference = 2 * Math.PI * 36
-  const offset = circumference - (percentage / 100) * circumference
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       viewport={{ once: true }}
-      whileHover={{ y: -6, transition: { duration: 0.2 } }}
-      className="group relative p-5 rounded-2xl glass hover:shadow-xl transition-shadow duration-300 cursor-default"
-      style={{
-        boxShadow: `0 0 0 0px ${skill.color}00`,
-      }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="group relative p-6 rounded-2xl glass hover:shadow-xl transition-shadow duration-300 cursor-default overflow-hidden"
+      style={{ borderLeft: `3px solid ${skill.color}` }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px -8px ${skill.color}40, 0 0 0 1px ${skill.color}30`
+        (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 32px -8px ${skill.color}40, 0 0 0 1px ${skill.color}20`
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow = `0 0 0 0px ${skill.color}00`
+        (e.currentTarget as HTMLElement).style.boxShadow = ''
       }}
     >
-      <div className="flex items-center gap-4">
-        {/* Logo + radial progress */}
-        <div className="relative w-20 h-20 flex-shrink-0">
-          <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
-            <circle
-              cx="40" cy="40" r="36"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="4"
-              className="text-slate-200 dark:text-slate-700"
-            />
-            <motion.circle
-              cx="40" cy="40" r="36"
-              fill="none"
-              stroke={skill.color}
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              initial={{ strokeDashoffset: circumference }}
-              animate={isInView ? { strokeDashoffset: offset } : {}}
-              transition={{ duration: 1.2, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-            />
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <i className={`${skill.icon} text-2xl`} />
-          </div>
-        </div>
+      {/* Watermark icon */}
+      <div className="absolute -right-3 -top-2 opacity-[0.06] pointer-events-none select-none" aria-hidden>
+        <i className={`${skill.icon} text-[7rem]`} />
+      </div>
 
-        {/* Info */}
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">
-            {skill.name}
-          </h3>
-          <span
-            className="inline-block text-xs font-semibold px-2.5 py-1 rounded-full"
-            style={{
-              backgroundColor: `${skill.color}15`,
-              color: skill.color,
-            }}
-          >
-            {levelLabel}
+      {/* Header: icon + badge */}
+      <div className="flex items-center justify-between mb-4 relative z-10">
+        <i className={`${skill.icon} text-3xl`} />
+        <span
+          className="text-xs font-semibold px-3 py-1 rounded-full"
+          style={{ backgroundColor: `${skill.color}18`, color: skill.color }}
+        >
+          {levelLabel}
+        </span>
+      </div>
+
+      {/* Skill name */}
+      <h3
+        className="text-2xl font-bold text-slate-900 dark:text-white mb-5 relative z-10"
+        style={{ fontFamily: 'var(--font-heading)' }}
+      >
+        {skill.name}
+      </h3>
+
+      {/* Progress bar */}
+      <div className="relative z-10">
+        <div className="h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+          <motion.div
+            className="h-full rounded-full"
+            style={{ backgroundColor: skill.color }}
+            initial={{ width: 0 }}
+            animate={isInView ? { width: `${percentage}%` } : {}}
+            transition={{ duration: 1.2, delay: 0.3 + index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+          />
+        </div>
+        <div className="flex justify-end mt-1.5">
+          <span className="text-xs font-medium tabular-nums" style={{ color: skill.color }}>
+            {percentage}%
           </span>
         </div>
       </div>
