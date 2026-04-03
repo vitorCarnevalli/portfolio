@@ -8,12 +8,12 @@
   "hero": {
     "title": "Desenvolvedor Full Stack",
     "subtitle": "Campinas, SP · Sistemas de Informação — PUC Campinas",
-    "description": "Estudante de Sistemas de Informação em busca de oportunidades em Desenvolvimento de Software. Apaixonado por resolver problemas com código e criar soluções que fazem a diferença.",
+    "description": "Estudante de Sistemas de Informação em busca de oportunidades em desenvolvimento de software. Apaixonado por resolver problemas com código e construir soluções que fazem a diferença.",
     "resume": "Currículo"
   },
   "skills": {
     "title": "Habilidades Técnicas",
-    "subtitle": "Linguagens e ferramentas que domino",
+    "subtitle": "Linguagens e ferramentas com que trabalho",
     "tools": "Ferramentas & Tecnologias",
     "levels": {
       "beginner": "Básico",
@@ -35,7 +35,7 @@
       "role": "Estagiário de Suporte de TI",
       "org": "UNICAMP (FEF)",
       "period": "Nov 2024 – Nov 2026",
-      "description": "Manutenção de equipamentos, atendimento a usuários e suporte técnico na FEF/UNICAMP.",
+      "description": "Manutenção de hardware, suporte a usuários finais e assistência técnica na FEF/UNICAMP.",
       "tags": ["Hardware", "Help Desk", "Redes", "Windows", "Suporte Técnico"]
     }
   },

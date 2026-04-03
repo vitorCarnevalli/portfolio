@@ -7,8 +7,8 @@
   },
   "hero": {
     "title": "Full Stack Developer",
-    "subtitle": "Campinas, SP · Information Systems — PUC Campinas",
-    "description": "Information Systems student seeking opportunities in Software Development. Passionate about solving problems with code and building solutions that make a difference.",
+    "subtitle": "Campinas, SP · B.S. in Information Systems — PUC Campinas",
+    "description": "Information Systems student seeking opportunities in software development. Passionate about solving problems with code and building solutions that make a difference.",
     "resume": "Resume"
   },
   "skills": {
@@ -25,7 +25,7 @@
     "title": "Experience & Education",
     "subtitle": "My professional and academic journey",
     "puc": {
-      "role": "Information Systems",
+      "role": "B.S. in Information Systems",
       "org": "PUC Campinas",
       "period": "2023 – Dec 2027",
       "description": "Expected graduation: December 2027",
@@ -35,7 +35,7 @@
       "role": "IT Support Intern",
       "org": "UNICAMP (FEF)",
       "period": "Nov 2024 – Nov 2026",
-      "description": "Equipment maintenance, user support, and technical assistance at FEF/UNICAMP.",
+      "description": "Hardware maintenance, end-user support, and technical assistance at FEF/UNICAMP.",
       "tags": ["Hardware", "Help Desk", "Networking", "Windows", "Tech Support"]
     }
   },
