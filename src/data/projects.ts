@@ -11,6 +11,6 @@ export const projects: Project[] = [
     nameKey: 'projects.portfolio.name',
     descriptionKey: 'projects.portfolio.description',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
-    repo: 'https://github.com/vitorCarnevalli',
+    repo: 'https://github.com/vitorCarnevalli/portfolio',
   },
 ]

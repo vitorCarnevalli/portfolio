@@ -1,9 +1,84 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { projects } from '../data/projects'
-import { TiltCard } from './TiltCard'
 
 interface ProjectsProps {
   t: (key: string) => string
+}
+
+function ProjectCard({ project, index, t }: { project: (typeof projects)[number]; index: number; t: (k: string) => string }) {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+    >
+      <a
+        href={project.url || project.repo}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="group relative block glass rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/10"
+      >
+        {/* Número de fundo */}
+        <div
+          className="absolute top-0 right-5 text-[7rem] font-bold leading-none select-none pointer-events-none text-slate-900/[0.04] dark:text-white/[0.04]"
+          style={{ fontFamily: 'var(--font-heading)' }}
+        >
+          {String(index + 1).padStart(2, '0')}
+        </div>
+
+        {/* Borda esquerda amber */}
+        <motion.div
+          className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-amber-400 to-orange-500 rounded-l-2xl origin-top"
+          animate={{ scaleY: hovered ? 1 : 0 }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
+        />
+
+        <div className="relative p-7">
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-5">
+            {project.tags.map(tag => (
+              <span
+                key={tag}
+                className="px-2.5 py-0.5 rounded-md text-xs font-medium tracking-wide border border-amber-200/60 dark:border-amber-500/20 text-amber-700 dark:text-amber-400 bg-amber-50/50 dark:bg-amber-500/5"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Título + seta */}
+          <div className="flex items-start justify-between gap-4 mb-3">
+            <h3
+              className="text-2xl font-bold text-slate-900 dark:text-white leading-tight"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              {t(project.nameKey)}
+            </h3>
+            <motion.svg
+              className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1"
+              animate={hovered ? { x: 3, y: -3 } : { x: 0, y: 0 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
+            </motion.svg>
+          </div>
+
+          <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            {t(project.descriptionKey)}
+          </p>
+        </div>
+      </a>
+    </motion.div>
+  )
 }
 
 export function Projects({ t }: ProjectsProps) {
@@ -13,10 +88,10 @@ export function Projects({ t }: ProjectsProps) {
 
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
           className="mb-14 max-w-xl"
         >
           <h2
@@ -32,77 +107,23 @@ export function Projects({ t }: ProjectsProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              <TiltCard className="group">
-                <a
-                  href={project.url || project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block glass rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-500"
-                >
-                  {/* Preview area */}
-                  <div className="relative h-40 bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-amber-500/10 dark:from-amber-500/20 dark:via-orange-500/20 dark:to-amber-500/20 flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,158,11,0.1),transparent_70%)]" />
-                    <div className="relative">
-                      <motion.div
-                        whileHover={{ rotate: 5, scale: 1.1 }}
-                        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-xl"
-                      >
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                      </motion.div>
-                    </div>
-                    {/* Gradient line on top */}
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                        {t(project.nameKey)}
-                      </h3>
-                      <svg className="w-5 h-5 text-slate-400 group-hover:text-amber-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
-                      {t(project.descriptionKey)}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 glass rounded-full text-xs font-medium text-slate-600 dark:text-slate-300"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </a>
-              </TiltCard>
-            </motion.div>
+            <ProjectCard key={project.nameKey} project={project} index={i} t={t} />
           ))}
 
-          {/* Coming soon */}
+          {/* Em breve */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="glass rounded-2xl border-dashed border-2 border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center justify-center min-h-[280px]"
+            transition={{ duration: 0.5, delay: projects.length * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+            className="glass rounded-2xl border-dashed border-2 border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center justify-center min-h-[160px] gap-3"
           >
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-              className="w-14 h-14 rounded-full glass flex items-center justify-center mb-4"
-            >
-              <svg className="w-7 h-7 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4"/></svg>
-            </motion.div>
-            <span className="text-sm font-medium text-slate-400 dark:text-slate-500">
+            <div className="w-10 h-10 rounded-full glass flex items-center justify-center">
+              <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-widest">
               {t('projects.comingSoon')}
             </span>
           </motion.div>

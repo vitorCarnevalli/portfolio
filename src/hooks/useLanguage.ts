@@ -10,13 +10,19 @@ export function useLanguage() {
   const [lang, setLang] = useState<Lang>(() => {
     return (localStorage.getItem('lang') as Lang) || 'pt'
   })
+  const [isFadingOut, setIsFadingOut] = useState(false)
 
   const toggleLang = useCallback(() => {
+    setIsFadingOut(true)
+  }, [])
+
+  const onFadeOutComplete = useCallback(() => {
     setLang(prev => {
       const next = prev === 'pt' ? 'en' : 'pt'
       localStorage.setItem('lang', next)
       return next
     })
+    setIsFadingOut(false)
   }, [])
 
   const t = useCallback((key: string): string => {
@@ -32,5 +38,5 @@ export function useLanguage() {
     return typeof value === 'string' ? value : key
   }, [lang])
 
-  return { lang, toggleLang, t }
+  return { lang, toggleLang, t, isFadingOut, onFadeOutComplete }
 }

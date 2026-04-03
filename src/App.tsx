@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { Skills } from './components/Skills'
@@ -11,7 +12,7 @@ import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
-  const { lang, toggleLang, t } = useLanguage()
+  const { lang, toggleLang, t, isFadingOut, onFadeOutComplete } = useLanguage()
   useSmoothScroll()
 
   return (
@@ -24,13 +25,21 @@ function App() {
         toggleLang={toggleLang}
         t={t}
       />
-      <main>
-        <Hero t={t} />
-        <Skills t={t} />
-        <Experience t={t} />
-        <Projects t={t} />
-      </main>
-      <Footer t={t} />
+      <motion.div
+        animate={{ opacity: isFadingOut ? 0 : 1 }}
+        transition={{ duration: 0.18, ease: 'easeInOut' }}
+        onAnimationComplete={() => {
+          if (isFadingOut) onFadeOutComplete()
+        }}
+      >
+        <main>
+          <Hero t={t} />
+          <Skills t={t} />
+          <Experience t={t} />
+          <Projects t={t} />
+        </main>
+        <Footer t={t} />
+      </motion.div>
     </div>
   )
 }
