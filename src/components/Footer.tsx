@@ -64,12 +64,6 @@ export function Footer({ t }: FooterProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
             >
-              <span
-                className="text-4xl font-black bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent block mb-4"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                VA
-              </span>
               <h2
                 className="text-2xl font-bold text-slate-900 dark:text-white mb-2"
                 style={{ fontFamily: 'var(--font-heading)' }}
