@@ -103,28 +103,27 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
           {/* Direita: Controles */}
           <div className="hidden md:flex items-center gap-2">
             <div className="flex items-center glass rounded-xl p-0.5">
-              <button
-                onClick={() => lang !== 'pt' && toggleLang()}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
-                  lang === 'pt'
-                    ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                    : 'text-slate-500 dark:text-slate-400'
-                }`}
-                data-hover
-              >
-                PT
-              </button>
-              <button
-                onClick={() => lang !== 'en' && toggleLang()}
-                className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 ${
-                  lang === 'en'
-                    ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                    : 'text-slate-500 dark:text-slate-400'
-                }`}
-                data-hover
-              >
-                EN
-              </button>
+              {(['pt', 'en'] as const).map(l => (
+                <button
+                  key={l}
+                  onClick={() => lang !== l && toggleLang()}
+                  className="relative px-2.5 py-1.5 rounded-lg text-xs font-bold"
+                  data-hover
+                >
+                  {lang === l && (
+                    <motion.div
+                      layoutId="lang-indicator"
+                      className="absolute inset-0 rounded-lg bg-white dark:bg-slate-700 shadow-sm"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className={`relative z-10 transition-colors duration-150 ${
+                    lang === l ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'
+                  }`}>
+                    {l.toUpperCase()}
+                  </span>
+                </button>
+              ))}
             </div>
 
             <button
@@ -196,26 +195,26 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             })}
             <div className="pt-3 border-t border-slate-200/50 dark:border-slate-800/50">
               <div className="flex items-center glass rounded-xl p-0.5 w-fit">
-                <button
-                  onClick={() => { if (lang !== 'pt') toggleLang(); setMenuOpen(false); }}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                    lang === 'pt'
-                      ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                      : 'text-slate-500 dark:text-slate-400'
-                  }`}
-                >
-                  PT
-                </button>
-                <button
-                  onClick={() => { if (lang !== 'en') toggleLang(); setMenuOpen(false); }}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                    lang === 'en'
-                      ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                      : 'text-slate-500 dark:text-slate-400'
-                  }`}
-                >
-                  EN
-                </button>
+                {(['pt', 'en'] as const).map(l => (
+                  <button
+                    key={l}
+                    onClick={() => { if (lang !== l) toggleLang(); setMenuOpen(false); }}
+                    className="relative px-3 py-1.5 rounded-lg text-xs font-bold"
+                  >
+                    {lang === l && (
+                      <motion.div
+                        layoutId="lang-indicator-mobile"
+                        className="absolute inset-0 rounded-lg bg-white dark:bg-slate-700 shadow-sm"
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                    <span className={`relative z-10 transition-colors duration-150 ${
+                      lang === l ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'
+                    }`}>
+                      {l.toUpperCase()}
+                    </span>
+                  </button>
+                ))}
               </div>
             </div>
           </div>
