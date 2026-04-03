@@ -4,7 +4,6 @@ import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
-import { CustomCursor } from './components/CustomCursor'
 import { BackgroundGrid } from './components/BackgroundGrid'
 import { SectionDivider } from './components/SectionDivider'
 import { useTheme } from './hooks/useTheme'
@@ -18,8 +17,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
-      <CustomCursor />
-      <BackgroundGrid />
+<BackgroundGrid />
       <Navbar
         theme={theme}
         toggleTheme={toggleTheme}
