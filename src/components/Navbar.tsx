@@ -57,7 +57,9 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
           ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30'
           : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
+        <div className="px-8 lg:px-16 h-16 flex items-center justify-between">
+
+          {/* Esquerda: Logo */}
           <motion.a
             href="#"
             whileHover={{ scale: 1.05 }}
@@ -70,8 +72,8 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             </span>
           </motion.a>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Centro: Links de navegação */}
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (
@@ -96,9 +98,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                 </button>
               )
             })}
+          </div>
 
-            <div className="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-2" />
-
+          {/* Direita: Controles */}
+          <div className="hidden md:flex items-center gap-2">
             <div className="flex items-center glass rounded-xl p-0.5">
               <button
                 onClick={() => lang !== 'pt' && toggleLang()}
@@ -128,7 +131,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               onClick={toggleTheme}
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
-              className="ml-1 w-9 h-9 flex items-center justify-center rounded-xl glass text-sm"
+              className="w-9 h-9 flex items-center justify-center rounded-xl glass text-sm"
               aria-label="Toggle theme"
               data-hover
             >
