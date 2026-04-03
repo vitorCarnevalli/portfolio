@@ -7,12 +7,12 @@ export function BackgroundGrid() {
   return (
     <motion.div
       style={{ y }}
-      className="fixed inset-0 -z-20 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+      className="fixed inset-0 -z-20 opacity-[0.12] dark:opacity-[0.08] pointer-events-none"
     >
       <svg width="100%" height="100%">
         <defs>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <circle cx="20" cy="20" r="1" fill="currentColor" className="text-slate-900 dark:text-white" />
+            <circle cx="20" cy="20" r="1" fill="#f59e0b" />
           </pattern>
         </defs>
         <rect width="100%" height="200%" fill="url(#grid)" />
