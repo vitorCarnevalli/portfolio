@@ -101,40 +101,45 @@ export function Hero({ t }: HeroProps) {
             </motion.div>
           </motion.div>
 
-          {/* Right: Photo + 3D Scene */}
+          {/* Right: Photo */}
           <motion.div
             variants={scaleIn}
             initial="hidden"
             animate="visible"
             className="relative h-auto lg:h-[600px] flex items-center justify-center pb-4 lg:pb-0"
           >
-            {/* Photo placeholder */}
-            <div className="relative z-10 w-56 h-64 lg:w-72 lg:h-80">
+            {/* Dot grid decoration */}
+            <div className="absolute inset-0 opacity-20 dark:opacity-10" style={{
+              backgroundImage: 'radial-gradient(circle, #10b981 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+            }} />
+
+            {/* Photo container */}
+            <div className="relative z-10 w-56 lg:w-[280px]" style={{ aspectRatio: '3/4' }}>
               {/* Borda gradiente animada */}
               <div
-                className="absolute -inset-[1px] rounded-3xl animate-gradient opacity-60"
+                className="absolute -inset-[2px] rounded-3xl animate-gradient"
                 style={{
-                  background: 'linear-gradient(135deg, #059669, #10b981, #059669)',
+                  background: 'linear-gradient(135deg, #059669, #10b981, #34d399, #059669)',
                   backgroundSize: '200% 200%',
                 }}
               />
 
-              {/* Glass interior */}
-              <div className="relative w-full h-full rounded-3xl glass flex flex-col items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-emerald-600/5" />
+              {/* Foto */}
+              <div className="relative w-full h-full rounded-3xl overflow-hidden">
+                <img
+                  src="/profile.jpeg"
+                  alt="Vitor Carnevalli de Almeida"
+                  className="w-full h-full object-cover object-top"
+                />
+                {/* Gradient overlay bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
+              </div>
 
-                {/* Cantos decorativos */}
-                <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-emerald-500/50 rounded-tl" />
-                <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-emerald-500/50 rounded-tr" />
-                <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-emerald-500/50 rounded-bl" />
-                <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-emerald-500/50 rounded-br" />
-
-                <span
-                  className="relative text-7xl font-black text-slate-300 dark:text-slate-600 select-none"
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                >
-                  VA
-                </span>
+              {/* Badge decorativo */}
+              <div className="absolute -bottom-4 -right-4 glass rounded-2xl px-4 py-2 flex items-center gap-2 shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-300" style={{ fontFamily: "'Space Mono', monospace" }}>{t('hero.openToWork')}</span>
               </div>
             </div>
           </motion.div>
