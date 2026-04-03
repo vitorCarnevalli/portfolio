@@ -15,7 +15,7 @@ interface SkillsProps {
 export function Skills({ t }: SkillsProps) {
   return (
     <section id="skills" className="py-24 px-8 lg:px-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-50/50 dark:via-emerald-950/10 to-transparent -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/20 dark:via-blue-950/08 to-transparent -z-10" />
 
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -26,13 +26,13 @@ export function Skills({ t }: SkillsProps) {
           className="mb-14 max-w-xl"
         >
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9] mb-3 tracking-tight"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             {t('skills.title')}
           </h2>
-          <div className="w-12 h-1 rounded-full bg-emerald-600 dark:bg-emerald-400 mb-3" />
-          <p className="text-slate-500 dark:text-slate-400 text-lg">
+          <div className="w-12 h-[2px] bg-[#0066FF] mb-3" />
+          <p className="text-[#6B6B6B] dark:text-[#888] text-lg">
             {t('skills.subtitle')}
           </p>
         </motion.div>
@@ -54,14 +54,15 @@ export function Skills({ t }: SkillsProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-center text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-6">
+          <h3 className="text-center text-xs font-bold text-[#6B6B6B] dark:text-[#555] uppercase tracking-widest mb-6" style={{ fontFamily: 'var(--font-mono)' }}>
             {t('skills.tools')}
           </h3>
           <div className="flex flex-wrap gap-3 justify-center">
             {tools.map((tool) => (
               <span
                 key={tool}
-                className="flex items-center gap-2.5 px-5 py-2.5 glass rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                className="flex items-center gap-2.5 px-5 py-2.5 border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-sm font-medium text-[#6B6B6B] dark:text-[#888] hover:text-[#0066FF] dark:hover:text-[#0066FF] transition-colors"
+                style={{ fontFamily: 'var(--font-mono)' }}
               >
                 {toolIcons[tool] ? (
                   <i className={`${toolIcons[tool]} text-base`} />

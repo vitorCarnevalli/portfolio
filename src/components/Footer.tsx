@@ -8,7 +8,7 @@ const contacts = [
   {
     label: 'Email',
     href: 'mailto:carnevalli22@gmail.com',
-    color: '#059669',
+    color: '#0066FF',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -18,7 +18,7 @@ const contacts = [
   {
     label: 'GitHub',
     href: 'https://github.com/vitorCarnevalli',
-    color: '#64748b',
+    color: '#6B6B6B',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
@@ -50,8 +50,8 @@ const contacts = [
 export function Footer({ t }: FooterProps) {
   return (
     <footer className="relative overflow-hidden">
-      {/* Top gradient line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-emerald-600/40 dark:via-emerald-500/40 to-transparent" />
+      {/* Top line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#0066FF]/40 to-transparent" />
 
       <div className="relative py-16 px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
@@ -65,12 +65,12 @@ export function Footer({ t }: FooterProps) {
               transition={{ duration: 0.4 }}
             >
               <h2
-                className="text-2xl font-bold text-slate-900 dark:text-white mb-2"
+                className="text-2xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9] mb-2"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 {t('footer.cta')}
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-xs">
+              <p className="text-[#6B6B6B] dark:text-[#888] text-sm leading-relaxed max-w-xs">
                 {t('footer.ctaDesc')}
               </p>
             </motion.div>
@@ -84,7 +84,7 @@ export function Footer({ t }: FooterProps) {
               className="lg:flex lg:justify-end"
             >
               <div className="w-full lg:w-auto">
-                <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+                <p className="text-xs font-bold text-[#6B6B6B] dark:text-[#555] uppercase tracking-widest mb-4" style={{ fontFamily: 'var(--font-mono)' }}>
                   {t('footer.contactLabel')}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
@@ -99,12 +99,14 @@ export function Footer({ t }: FooterProps) {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4 }}
                       whileHover={{ y: -2 }}
-                      className="group flex items-center gap-3 px-4 py-3 glass rounded-xl transition-all duration-300"
+                      className="group flex items-center gap-3 px-4 py-3 border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] transition-all duration-300"
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px -4px ${contact.color}40, 0 0 0 1px ${contact.color}20`
+                        (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 20px -4px ${contact.color}30`
+                        ;(e.currentTarget as HTMLElement).style.borderColor = `${contact.color}40`
                       }}
                       onMouseLeave={(e) => {
                         (e.currentTarget as HTMLElement).style.boxShadow = ''
+                        ;(e.currentTarget as HTMLElement).style.borderColor = ''
                       }}
                     >
                       <span
@@ -113,11 +115,11 @@ export function Footer({ t }: FooterProps) {
                       >
                         {contact.icon}
                       </span>
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
+                      <span className="text-sm font-medium text-[#0A0A0A] dark:text-[#F0EFE9] transition-colors">
                         {contact.label}
                       </span>
                       <svg
-                        className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                        className="w-3.5 h-3.5 text-[#6B6B6B] dark:text-[#555] ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
@@ -130,11 +132,11 @@ export function Footer({ t }: FooterProps) {
           </div>
 
           {/* Bottom bar */}
-          <div className="pt-8 border-t border-slate-200/50 dark:border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-2">
-            <p className="text-xs text-slate-400 dark:text-slate-600">
+          <div className="pt-8 border-t border-[#E5E5E0] dark:border-[#1E1E1E] flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p className="text-xs text-[#6B6B6B] dark:text-[#555]" style={{ fontFamily: 'var(--font-mono)' }}>
               &copy; {new Date().getFullYear()} Vitor Almeida &middot; {t('footer.rights')}
             </p>
-            <p className="text-xs text-slate-400 dark:text-slate-600">
+            <p className="text-xs text-[#6B6B6B] dark:text-[#555]" style={{ fontFamily: 'var(--font-mono)' }}>
               {t('footer.madeWith')}
             </p>
           </div>

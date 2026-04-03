@@ -52,9 +52,9 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30'
+          ? 'bg-[#FAFAF8]/95 dark:bg-[#0A0A0A]/95 border-b border-[#E5E5E0] dark:border-[#1E1E1E]'
           : 'bg-transparent'
       }`}>
         <div className="px-8 lg:px-16 h-16 flex items-center justify-between">
@@ -67,8 +67,11 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             className="relative group"
             data-hover
           >
-            <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-400 dark:to-emerald-300 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-heading)' }}>
-              VA
+            <span
+              className="text-xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9]"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              VC
             </span>
           </motion.a>
 
@@ -80,10 +83,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-xl ${
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-emerald-700 dark:text-emerald-400'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/50'
+                      ? 'text-[#0066FF]'
+                      : 'text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9]'
                   }`}
                   data-hover
                 >
@@ -91,7 +94,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   {isActive && (
                     <motion.span
                       layoutId="active-indicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-emerald-600 dark:bg-emerald-400"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[#0066FF]"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -102,23 +105,23 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
           {/* Direita: Controles */}
           <div className="hidden md:flex items-center gap-2">
-            <div className="flex items-center glass rounded-xl p-0.5">
+            <div className="flex items-center border border-[#E5E5E0] dark:border-[#1E1E1E] rounded-lg p-0.5 bg-[#FFFFFF] dark:bg-[#111111]">
               {(['pt', 'en'] as const).map(l => (
                 <button
                   key={l}
                   onClick={() => lang !== l && toggleLang()}
-                  className="relative px-2.5 py-1.5 rounded-lg text-xs font-bold"
+                  className="relative px-2.5 py-1.5 rounded-md text-xs font-bold"
                   data-hover
                 >
                   {lang === l && (
                     <motion.div
                       layoutId="lang-indicator"
-                      className="absolute inset-0 rounded-lg bg-white dark:bg-slate-700 shadow-sm"
+                      className="absolute inset-0 rounded-md bg-[#0066FF]"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
                   <span className={`relative z-10 transition-colors duration-150 ${
-                    lang === l ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'
+                    lang === l ? 'text-white' : 'text-[#888] dark:text-[#555]'
                   }`}>
                     {l.toUpperCase()}
                   </span>
@@ -128,12 +131,12 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 flex items-center justify-center rounded-xl glass text-sm transition-opacity duration-150 hover:opacity-70 active:scale-95"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-sm transition-opacity duration-150 hover:opacity-70 active:scale-95"
               aria-label="Toggle theme"
               data-hover
             >
               {theme === 'light' ? (
-                <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                <svg className="w-4 h-4 text-[#6B6B6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
               ) : (
                 <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
               )}
@@ -144,17 +147,17 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 flex items-center justify-center rounded-xl glass text-sm"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111]"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
-                <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                <svg className="w-4 h-4 text-[#6B6B6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
               ) : (
                 <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
               )}
             </button>
             <button
-              className="w-9 h-9 flex items-center justify-center rounded-xl glass text-slate-600 dark:text-slate-400"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-[#6B6B6B] dark:text-[#888]"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
@@ -176,40 +179,40 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
           transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
-          <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-800/50 px-6 py-4 space-y-1">
+          <div className="bg-[#FAFAF8]/98 dark:bg-[#0A0A0A]/98 border-t border-[#E5E5E0] dark:border-[#1E1E1E] px-6 py-4 space-y-1">
             {navLinks.map(link => {
               const isActive = activeSection === link.href.slice(1)
               return (
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className={`block w-full text-left py-3 px-4 text-sm font-medium rounded-xl transition-colors ${
+                  className={`block w-full text-left py-3 px-4 text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                      ? 'text-[#0066FF]'
+                      : 'text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9]'
                   }`}
                 >
                   {t(link.key)}
                 </button>
               )
             })}
-            <div className="pt-3 border-t border-slate-200/50 dark:border-slate-800/50">
-              <div className="flex items-center glass rounded-xl p-0.5 w-fit">
+            <div className="pt-3 border-t border-[#E5E5E0] dark:border-[#1E1E1E]">
+              <div className="flex items-center border border-[#E5E5E0] dark:border-[#1E1E1E] rounded-lg p-0.5 w-fit bg-[#FFFFFF] dark:bg-[#111111]">
                 {(['pt', 'en'] as const).map(l => (
                   <button
                     key={l}
                     onClick={() => { if (lang !== l) toggleLang(); setMenuOpen(false); }}
-                    className="relative px-3 py-1.5 rounded-lg text-xs font-bold"
+                    className="relative px-3 py-1.5 rounded-md text-xs font-bold"
                   >
                     {lang === l && (
                       <motion.div
                         layoutId="lang-indicator-mobile"
-                        className="absolute inset-0 rounded-lg bg-white dark:bg-slate-700 shadow-sm"
+                        className="absolute inset-0 rounded-md bg-[#0066FF]"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
                     <span className={`relative z-10 transition-colors duration-150 ${
-                      lang === l ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'
+                      lang === l ? 'text-white' : 'text-[#888] dark:text-[#555]'
                     }`}>
                       {l.toUpperCase()}
                     </span>

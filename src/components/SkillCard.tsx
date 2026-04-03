@@ -49,7 +49,7 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
 
       {/* Skill name */}
       <h3
-        className="text-2xl font-bold text-slate-900 dark:text-white mb-5 relative z-10"
+        className="text-2xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9] mb-5 relative z-10"
         style={{ fontFamily: 'var(--font-heading)' }}
       >
         {skill.name}
@@ -57,7 +57,7 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
 
       {/* Progress bar */}
       <div className="relative z-10">
-        <div className="h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+        <div className="h-1.5 bg-[#E5E5E0] dark:bg-[#1E1E1E] overflow-hidden">
           <motion.div
             className="h-full rounded-full"
             style={{ backgroundColor: skill.color }}

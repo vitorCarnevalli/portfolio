@@ -15,7 +15,7 @@ function App() {
   useSmoothScroll()
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
+    <div className="min-h-screen bg-[#FAFAF8] dark:bg-[#0A0A0A] text-[#0A0A0A] dark:text-[#F0EFE9] transition-colors duration-300">
 <BackgroundGrid />
       <Navbar
         theme={theme}
