@@ -16,6 +16,14 @@
   --color-accent-600: #ea580c;
 }
 
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   margin: 0;
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -66,19 +74,6 @@ body {
   to { stroke-dashoffset: -20; }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #f59e0b, #f97316);
-  border-radius: 3px;
-}
 
 /* Glassmorphism utility */
 .glass {
