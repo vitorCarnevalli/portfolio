@@ -1,9 +1,4 @@
-import { Suspense, lazy } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-
-const HeroBackground = lazy(() =>
-  import('./HeroBackground').then(m => ({ default: m.HeroBackground }))
-)
 
 interface HeroProps {
   t: (key: string) => string
@@ -109,17 +104,6 @@ export function Hero({ t }: HeroProps) {
             animate="visible"
             className="relative h-auto lg:h-[600px] flex items-center justify-center pb-4 lg:pb-0"
           >
-            {/* 3D canvas — desktop only, atrás da foto */}
-            <div className="hidden lg:block absolute inset-0">
-              <Suspense fallback={
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 blur-2xl animate-pulse" />
-                </div>
-              }>
-                <HeroBackground />
-              </Suspense>
-            </div>
-
             {/* Photo placeholder */}
             <div className="relative z-10 w-56 h-64 lg:w-72 lg:h-80">
               {/* Borda gradiente animada */}
@@ -135,28 +119,18 @@ export function Hero({ t }: HeroProps) {
               <div className="relative w-full h-full rounded-3xl glass flex flex-col items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5" />
 
-                {/* Cantos decorativos — estilo frame de foto */}
+                {/* Cantos decorativos */}
                 <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-amber-400/50 rounded-tl" />
                 <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-amber-400/50 rounded-tr" />
                 <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-orange-400/50 rounded-bl" />
                 <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-orange-400/50 rounded-br" />
 
-                {/* Iniciais */}
                 <span
                   className="relative text-7xl font-black text-slate-300 dark:text-slate-600 select-none"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   VA
                 </span>
-
-                {/* Hint de câmera */}
-                <div className="relative mt-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-sm">
-                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-xs text-slate-400 font-medium">foto em breve</span>
-                </div>
               </div>
             </div>
           </motion.div>
