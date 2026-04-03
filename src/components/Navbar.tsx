@@ -12,10 +12,29 @@ interface NavbarProps {
 export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('about')
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const sections = ['about', 'skills', 'experience', 'projects']
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    )
+    sections.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
   }, [])
 
   const navLinks = [
@@ -53,16 +72,30 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map(link => (
-              <button
-                key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className="relative px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors rounded-xl hover:bg-slate-100/80 dark:hover:bg-slate-800/50"
-                data-hover
-              >
-                {t(link.key)}
-              </button>
-            ))}
+            {navLinks.map(link => {
+              const isActive = activeSection === link.href.slice(1)
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => scrollTo(link.href)}
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-xl ${
+                    isActive
+                      ? 'text-amber-600 dark:text-amber-400'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/50'
+                  }`}
+                  data-hover
+                >
+                  {t(link.key)}
+                  {isActive && (
+                    <motion.span
+                      layoutId="active-indicator"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-amber-500"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </button>
+              )
+            })}
 
             <div className="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-2" />
 
@@ -144,15 +177,22 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
           className="md:hidden overflow-hidden"
         >
           <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-800/50 px-6 py-4 space-y-1">
-            {navLinks.map(link => (
-              <button
-                key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className="block w-full text-left py-3 px-4 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
-              >
-                {t(link.key)}
-              </button>
-            ))}
+            {navLinks.map(link => {
+              const isActive = activeSection === link.href.slice(1)
+              return (
+                <button
+                  key={link.href}
+                  onClick={() => scrollTo(link.href)}
+                  className={`block w-full text-left py-3 px-4 text-sm font-medium rounded-xl transition-colors ${
+                    isActive
+                      ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30'
+                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                  }`}
+                >
+                  {t(link.key)}
+                </button>
+              )
+            })}
             <div className="pt-3 border-t border-slate-200/50 dark:border-slate-800/50">
               <div className="flex items-center glass rounded-xl p-0.5 w-fit">
                 <button
