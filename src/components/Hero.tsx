@@ -37,8 +37,8 @@ export function Hero({ t }: HeroProps) {
       <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-orange-400/15 dark:bg-orange-600/10 rounded-full blur-[120px] -z-10" />
 
       {/* Desktop: split layout | Mobile: stacked */}
-      <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 py-32 lg:py-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-screen">
+      <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center lg:min-h-screen">
 
           {/* Left: Text content */}
           <motion.div
@@ -104,7 +104,7 @@ export function Hero({ t }: HeroProps) {
             variants={scaleIn}
             initial="hidden"
             animate="visible"
-            className="relative h-[320px] lg:h-[600px] flex items-center justify-center"
+            className="relative h-auto lg:h-[600px] flex items-center justify-center pb-4 lg:pb-0"
           >
             {/* 3D canvas — desktop only, atrás da foto */}
             <div className="hidden lg:block absolute inset-0">
