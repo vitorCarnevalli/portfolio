@@ -88,7 +88,7 @@ export function Footer({ t }: FooterProps) {
                   {t('footer.contactLabel')}
                 </p>
                 <div className="grid grid-cols-2 gap-3">
-                  {contacts.map((contact, i) => (
+                  {contacts.map((contact) => (
                     <motion.a
                       key={contact.label}
                       href={contact.href}

@@ -25,7 +25,7 @@ export function useLanguage() {
     setIsFadingOut(false)
   }, [])
 
-  const t = useCallback((key: string): string => {
+  const resolve = useCallback((key: string): unknown => {
     const keys = key.split('.')
     let value: unknown = translations[lang]
     for (const k of keys) {
@@ -35,8 +35,18 @@ export function useLanguage() {
         return key
       }
     }
-    return typeof value === 'string' ? value : key
+    return value
   }, [lang])
 
-  return { lang, toggleLang, t, isFadingOut, onFadeOutComplete }
+  const t = useCallback((key: string): string => {
+    const value = resolve(key)
+    return typeof value === 'string' ? value : key
+  }, [resolve])
+
+  const tArray = useCallback((key: string): string[] => {
+    const value = resolve(key)
+    return Array.isArray(value) ? (value as string[]) : []
+  }, [resolve])
+
+  return { lang, toggleLang, t, tArray, isFadingOut, onFadeOutComplete }
 }

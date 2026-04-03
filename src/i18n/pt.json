@@ -28,13 +28,15 @@
       "role": "Sistemas de Informação",
       "org": "PUC Campinas",
       "period": "2023 – Dez 2027",
-      "description": "Previsão de conclusão: Dezembro de 2027"
+      "description": "Previsão de conclusão: Dezembro de 2027",
+      "tags": ["Java", "Banco de Dados", "Eng. de Software", "Análise de Sistemas"]
     },
     "unicamp": {
       "role": "Estagiário de Suporte de TI",
       "org": "UNICAMP (FEF)",
       "period": "Nov 2024 – Nov 2026",
-      "description": "Manutenção de equipamentos, atendimento a usuários e suporte técnico na FEF/UNICAMP."
+      "description": "Manutenção de equipamentos, atendimento a usuários e suporte técnico na FEF/UNICAMP.",
+      "tags": ["Hardware", "Help Desk", "Redes", "Windows", "Suporte Técnico"]
     }
   },
   "projects": {

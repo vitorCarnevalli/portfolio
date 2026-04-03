@@ -12,7 +12,7 @@ import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
-  const { lang, toggleLang, t, isFadingOut, onFadeOutComplete } = useLanguage()
+  const { lang, toggleLang, t, tArray, isFadingOut, onFadeOutComplete } = useLanguage()
   useSmoothScroll()
 
   return (
@@ -35,7 +35,7 @@ function App() {
         <main>
           <Hero t={t} />
           <Skills t={t} />
-          <Experience t={t} />
+          <Experience t={t} tArray={tArray} />
           <Projects t={t} />
         </main>
         <Footer t={t} />
