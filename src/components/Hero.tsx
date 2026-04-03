@@ -161,20 +161,23 @@ export function Hero({ t }: HeroProps) {
         </div>
       </div>
 
-      {/* Scroll indicator — bottom center */}
+      {/* Scroll indicator — bottom center, desktop only */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
+        <motion.svg
+          animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 rounded-full flex justify-center pt-2"
+          className="w-5 h-5 text-amber-500"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          <motion.div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
-        </motion.div>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </motion.svg>
       </motion.div>
     </section>
   )
