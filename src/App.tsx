@@ -5,7 +5,6 @@ import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
 import { BackgroundGrid } from './components/BackgroundGrid'
-import { SectionDivider } from './components/SectionDivider'
 import { useTheme } from './hooks/useTheme'
 import { useLanguage } from './hooks/useLanguage'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
@@ -27,11 +26,8 @@ function App() {
       />
       <main>
         <Hero t={t} />
-        <SectionDivider />
         <Skills t={t} />
-        <SectionDivider />
         <Experience t={t} />
-        <SectionDivider />
         <Projects t={t} />
       </main>
       <Footer t={t} />
