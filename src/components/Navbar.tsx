@@ -46,7 +46,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             className="relative group"
             data-hover
           >
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-heading)' }}>
+            <span className="text-xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-heading)' }}>
               VA
             </span>
           </motion.a>

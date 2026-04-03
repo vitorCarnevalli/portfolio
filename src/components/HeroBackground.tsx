@@ -84,14 +84,14 @@ export function HeroBackground() {
         style={{ pointerEvents: 'none' }}
       >
         <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#60a5fa" />
-        <pointLight position={[-10, -10, 5]} intensity={0.5} color="#a78bfa" />
+        <pointLight position={[10, 10, 10]} intensity={1} color="#fbbf24" />
+        <pointLight position={[-10, -10, 5]} intensity={0.5} color="#fb923c" />
 
-        <FloatingShape position={[2.5, 1, 0]} color="#3b82f6" speed={0.8} distort={0.4} scale={1.2} />
-        <FloatingShape position={[-2.5, -0.5, -1]} color="#8b5cf6" speed={0.6} distort={0.3} scale={0.9} />
-        <FloatingShape position={[0.5, -1.5, -2]} color="#6366f1" speed={0.5} distort={0.5} scale={0.7} />
-        <FloatingTorus position={[-1.5, 1.5, -1.5]} color="#a78bfa" speed={0.4} scale={0.5} />
-        <FloatingShape position={[3, -1.5, -1]} color="#2563eb" speed={0.7} distort={0.2} scale={0.5} />
+        <FloatingShape position={[2.5, 1, 0]} color="#f59e0b" speed={0.8} distort={0.4} scale={1.2} />
+        <FloatingShape position={[-2.5, -0.5, -1]} color="#f97316" speed={0.6} distort={0.3} scale={0.9} />
+        <FloatingShape position={[0.5, -1.5, -2]} color="#ea580c" speed={0.5} distort={0.5} scale={0.7} />
+        <FloatingTorus position={[-1.5, 1.5, -1.5]} color="#fb923c" speed={0.4} scale={0.5} />
+        <FloatingShape position={[3, -1.5, -1]} color="#d97706" speed={0.7} distort={0.2} scale={0.5} />
       </Canvas>
     </div>
   )

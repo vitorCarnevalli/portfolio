@@ -12,7 +12,7 @@ export function Experience({ t }: ExperienceProps) {
       role: t('experience.puc.role'),
       org: t('experience.puc.org'),
       description: t('experience.puc.description'),
-      color: '#3b82f6',
+      color: '#f59e0b',
       tags: ['Java', 'Banco de Dados', 'Eng. de Software', 'Análise de Sistemas'],
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

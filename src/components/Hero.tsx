@@ -33,8 +33,8 @@ export function Hero({ t }: HeroProps) {
   return (
     <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax gradient blobs */}
-      <motion.div style={{ y: blob1Y }} className="absolute top-10 left-0 w-[500px] h-[500px] bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-[120px] -z-10" />
-      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-violet-400/15 dark:bg-violet-600/10 rounded-full blur-[120px] -z-10" />
+      <motion.div style={{ y: blob1Y }} className="absolute top-10 left-0 w-[500px] h-[500px] bg-amber-400/20 dark:bg-amber-600/10 rounded-full blur-[120px] -z-10" />
+      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-orange-400/15 dark:bg-orange-600/10 rounded-full blur-[120px] -z-10" />
 
       {/* Desktop: split layout | Mobile: stacked */}
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 py-32 lg:py-0">
@@ -55,7 +55,7 @@ export function Hero({ t }: HeroProps) {
             >
               <span className="text-slate-900 dark:text-white block">Vitor</span>
               <span className="text-slate-900 dark:text-white block">Carnevalli</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 bg-clip-text text-transparent animate-gradient">
+              <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent animate-gradient">
                 de Almeida
               </span>
             </motion.h1>
@@ -110,7 +110,7 @@ export function Hero({ t }: HeroProps) {
             <div className="hidden lg:block absolute inset-0">
               <Suspense fallback={
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500/20 to-violet-500/20 blur-2xl animate-pulse" />
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 blur-2xl animate-pulse" />
                 </div>
               }>
                 <HeroBackground />
@@ -123,20 +123,20 @@ export function Hero({ t }: HeroProps) {
               <div
                 className="absolute -inset-[1px] rounded-3xl animate-gradient opacity-60"
                 style={{
-                  background: 'linear-gradient(135deg, #3b82f6, #8b5cf6, #3b82f6)',
+                  background: 'linear-gradient(135deg, #f59e0b, #f97316, #f59e0b)',
                   backgroundSize: '200% 200%',
                 }}
               />
 
               {/* Glass interior */}
               <div className="relative w-full h-full rounded-3xl glass flex flex-col items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-violet-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5" />
 
                 {/* Cantos decorativos — estilo frame de foto */}
-                <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-blue-400/50 rounded-tl" />
-                <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-blue-400/50 rounded-tr" />
-                <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-violet-400/50 rounded-bl" />
-                <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-violet-400/50 rounded-br" />
+                <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-amber-400/50 rounded-tl" />
+                <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-amber-400/50 rounded-tr" />
+                <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-orange-400/50 rounded-bl" />
+                <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-orange-400/50 rounded-br" />
 
                 {/* Iniciais */}
                 <span
@@ -173,7 +173,7 @@ export function Hero({ t }: HeroProps) {
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
           className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 rounded-full flex justify-center pt-2"
         >
-          <motion.div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+          <motion.div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

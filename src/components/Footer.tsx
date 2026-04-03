@@ -8,7 +8,7 @@ const contacts = [
   {
     label: 'Email',
     href: 'mailto:carnevalli22@gmail.com',
-    color: '#3b82f6',
+    color: '#f59e0b',
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -51,7 +51,7 @@ export function Footer({ t }: FooterProps) {
   return (
     <footer className="relative overflow-hidden">
       {/* Top gradient line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
       <div className="relative py-16 px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
@@ -65,7 +65,7 @@ export function Footer({ t }: FooterProps) {
               transition={{ duration: 0.6 }}
             >
               <span
-                className="text-4xl font-black bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent block mb-4"
+                className="text-4xl font-black bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent block mb-4"
                 style={{ fontFamily: 'var(--font-heading)' }}
               >
                 VA
