@@ -60,9 +60,13 @@ export function Hero({ t }: HeroProps) {
             </motion.p>
 
             {/* Description */}
-            <motion.p variants={fadeUp} className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg mb-10">
-              {t('hero.description')}
-            </motion.p>
+            <motion.div variants={fadeUp} className="max-w-lg mb-10 text-sm leading-relaxed" style={{ fontFamily: "'Space Mono', monospace" }}>
+              <span className="text-emerald-500 dark:text-emerald-400">{'<bio>'}</span>
+              <p className="text-slate-600 dark:text-slate-400 pl-4 my-1">
+                {t('hero.description')}
+              </p>
+              <span className="text-emerald-500 dark:text-emerald-400">{'</bio>'}</span>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3">
