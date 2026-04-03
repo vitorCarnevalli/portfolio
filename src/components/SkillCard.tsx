@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import type { Skill } from '../data/skills'
+import { levelPercentage } from '../data/skills'
 
 interface SkillCardProps {
   skill: Skill
@@ -12,8 +13,9 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
+  const percentage = levelPercentage[skill.level]
   const circumference = 2 * Math.PI * 36
-  const offset = circumference - (skill.percentage / 100) * circumference
+  const offset = circumference - (percentage / 100) * circumference
 
   return (
     <motion.div
@@ -54,7 +56,7 @@ export function SkillCard({ skill, levelLabel, index }: SkillCardProps) {
               strokeDasharray={circumference}
               initial={{ strokeDashoffset: circumference }}
               animate={isInView ? { strokeDashoffset: offset } : {}}
-              transition={{ duration: 1.2, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.2, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
