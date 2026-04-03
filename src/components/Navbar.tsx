@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 interface NavbarProps {
   theme: 'light' | 'dark'
@@ -12,9 +12,6 @@ interface NavbarProps {
 export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
@@ -36,13 +33,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
   return (
     <>
-      {/* Scroll progress bar */}
-      <motion.div
-        style={{ scaleX, transformOrigin: '0%' }}
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-violet-500 to-purple-500 z-[60]"
-      />
-
-      <nav className={`fixed top-[2px] left-0 right-0 z-50 transition-all duration-500 ${
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg shadow-slate-200/20 dark:shadow-slate-900/30'
           : 'bg-transparent'
