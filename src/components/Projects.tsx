@@ -24,14 +24,6 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
         onMouseLeave={() => setHovered(false)}
         className="group relative block glass rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/10"
       >
-        {/* Número de fundo */}
-        <div
-          className="absolute top-0 right-5 text-[7rem] font-bold leading-none select-none pointer-events-none text-slate-900/[0.04] dark:text-white/[0.04]"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          {String(index + 1).padStart(2, '0')}
-        </div>
-
         {/* Borda esquerda emerald */}
         <motion.div
           className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-emerald-500 to-emerald-700 dark:from-emerald-400 dark:to-emerald-600 rounded-l-2xl origin-top"
@@ -52,16 +44,22 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
             ))}
           </div>
 
-          {/* Título + seta */}
-          <div className="flex items-start justify-between gap-4 mb-3">
-            <h3
-              className="text-2xl font-bold text-slate-900 dark:text-white leading-tight"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              {t(project.nameKey)}
-            </h3>
+          {/* Título */}
+          <h3
+            className="text-2xl font-bold text-slate-900 dark:text-white leading-tight mb-3"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            {t(project.nameKey)}
+          </h3>
+
+          <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+            {t(project.descriptionKey)}
+          </p>
+
+          {/* Seta — canto inferior direito */}
+          <div className="flex justify-end">
             <motion.svg
-              className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-1"
+              className="w-5 h-5 text-emerald-600 dark:text-emerald-400"
               animate={hovered ? { x: 3, y: -3 } : { x: 0, y: 0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               fill="none"
@@ -71,10 +69,6 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
             </motion.svg>
           </div>
-
-          <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-            {t(project.descriptionKey)}
-          </p>
         </div>
       </a>
     </motion.div>
