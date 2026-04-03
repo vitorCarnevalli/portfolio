@@ -47,17 +47,6 @@ export function Hero({ t }: HeroProps) {
             animate="visible"
             className="relative z-10 lg:pr-8"
           >
-            {/* Status badge */}
-            <motion.div variants={slideRight} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 glass rounded-full text-sm font-medium text-blue-600 dark:text-blue-400">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                </span>
-                {t('hero.title')}
-              </span>
-            </motion.div>
-
             {/* Name */}
             <motion.h1
               variants={slideRight}
