@@ -6,72 +6,69 @@ interface ProjectsProps {
   t: (key: string) => string
 }
 
-function ProjectCard({ project, index, t }: { project: (typeof projects)[number]; index: number; t: (k: string) => string }) {
+function ProjectRow({ project, index, t }: { project: (typeof projects)[number]; index: number; t: (k: string) => string }) {
   const [hovered, setHovered] = useState(false)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+      transition={{ duration: 0.45, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-4 md:gap-8 items-center py-7 border-b border-[#E5E5E0] dark:border-[#1E1E1E] transition-colors duration-200"
+      style={{ borderBottomColor: hovered ? '#0066FF' : undefined }}
     >
-      <a
-        href={project.url || project.repo}
-        target="_blank"
-        rel="noopener noreferrer"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        className="group relative block border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10"
+      {/* Nome */}
+      <h3
+        className="text-2xl font-bold leading-tight transition-colors duration-200"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          color: hovered ? '#0066FF' : undefined,
+        }}
       >
-        {/* Borda esquerda */}
-        <motion.div
-          className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#0066FF] origin-top"
-          animate={{ scaleY: hovered ? 1 : 0 }}
-          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
-        />
+        {t(project.nameKey)}
+      </h3>
 
-        <div className="relative p-7">
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-5">
-            {project.tags.map(tag => (
-              <span
-                key={tag}
-                className="px-2.5 py-0.5 text-xs font-medium tracking-wide border border-[#0066FF]/20 text-[#0066FF] bg-[#0066FF]/05"
-                style={{ fontFamily: 'var(--font-mono)' }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Título */}
-          <h3
-            className="text-2xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9] leading-tight mb-3"
-            style={{ fontFamily: 'var(--font-heading)' }}
+      {/* Tags */}
+      <div className="flex flex-wrap gap-x-3 gap-y-1 md:justify-center">
+        {project.tags.map(tag => (
+          <span
+            key={tag}
+            className="text-xs text-[#6B6B6B] dark:text-[#555]"
+            style={{ fontFamily: 'var(--font-mono)' }}
           >
-            {t(project.nameKey)}
-          </h3>
+            {tag}
+          </span>
+        ))}
+      </div>
 
-          <p className="text-sm text-[#6B6B6B] dark:text-[#888] leading-relaxed mb-6">
-            {t(project.descriptionKey)}
-          </p>
-
-          {/* Seta */}
-          <div className="flex justify-end">
-            <motion.svg
-              className="w-5 h-5 text-[#0066FF]"
-              animate={hovered ? { x: 3, y: -3 } : { x: 0, y: 0 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-            </motion.svg>
-          </div>
-        </div>
-      </a>
+      {/* Botões */}
+      <div className="flex items-center gap-5 md:justify-end">
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#0A0A0A] dark:text-[#F0EFE9] hover:text-[#0066FF] dark:hover:text-[#0066FF] hover:underline underline-offset-2 transition-colors duration-150"
+            style={{ fontFamily: 'var(--font-mono)' }}
+          >
+            Ver projeto ↗
+          </a>
+        )}
+        {project.repo && (
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-[#0A0A0A] dark:text-[#F0EFE9] hover:text-[#0066FF] dark:hover:text-[#0066FF] hover:underline underline-offset-2 transition-colors duration-150"
+            style={{ fontFamily: 'var(--font-mono)' }}
+          >
+            Repositório ↗
+          </a>
+        )}
+      </div>
     </motion.div>
   )
 }
@@ -98,26 +95,36 @@ export function Projects({ t }: ProjectsProps) {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="border-t border-[#E5E5E0] dark:border-[#1E1E1E]">
           {projects.map((project, i) => (
-            <ProjectCard key={project.nameKey} project={project} index={i} t={t} />
+            <ProjectRow key={project.nameKey} project={project} index={i} t={t} />
           ))}
 
           {/* Em breve */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: projects.length * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-            className="border border-dashed border-[#E5E5E0] dark:border-[#1E1E1E] flex flex-col items-center justify-center min-h-[160px] gap-3"
+            transition={{ duration: 0.45, delay: projects.length * 0.08, ease: [0.22, 1, 0.36, 1] as const }}
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-4 md:gap-8 items-center py-7 border-b border-[#E5E5E0] dark:border-[#1E1E1E] opacity-40"
           >
-            <div className="w-10 h-10 border border-[#E5E5E0] dark:border-[#1E1E1E] flex items-center justify-center">
-              <svg className="w-4 h-4 text-[#6B6B6B] dark:text-[#888]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-            </div>
-            <span className="text-xs font-medium text-[#6B6B6B] dark:text-[#888] uppercase tracking-widest" style={{ fontFamily: 'var(--font-mono)' }}>
+            <span
+              className="text-2xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9]"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               {t('projects.comingSoon')}
+            </span>
+            <span
+              className="text-xs text-[#6B6B6B] dark:text-[#555]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              —
+            </span>
+            <span
+              className="text-xs text-[#6B6B6B] dark:text-[#555]"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              —
             </span>
           </motion.div>
         </div>
