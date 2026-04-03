@@ -27,6 +27,7 @@ export function Skills({ t }: SkillsProps) {
           >
             {t('skills.title')}
           </h2>
+          <div className="w-12 h-1 rounded-full bg-amber-500 mb-3" />
           <p className="text-slate-500 dark:text-slate-400 text-lg">
             {t('skills.subtitle')}
           </p>

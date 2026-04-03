@@ -42,11 +42,11 @@ export function Experience({ t }: ExperienceProps) {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 max-w-xl"
+          className="mb-16 max-w-xl pl-5 border-l-2 border-amber-500"
         >
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight"
