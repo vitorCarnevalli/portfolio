@@ -13,7 +13,7 @@ export function Experience({ t, tArray }: ExperienceProps) {
       role: t('experience.puc.role'),
       org: t('experience.puc.org'),
       description: t('experience.puc.description'),
-      color: '#f59e0b',
+      color: '#059669',
       tags: tArray('experience.puc.tags'),
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +47,7 @@ export function Experience({ t, tArray }: ExperienceProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-16 max-w-xl pl-5 border-l-2 border-amber-500"
+          className="mb-16 max-w-xl pl-5 border-l-2 border-emerald-600 dark:border-emerald-500"
         >
           <h2
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight"

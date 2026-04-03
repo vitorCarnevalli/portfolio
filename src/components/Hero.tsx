@@ -27,8 +27,8 @@ export function Hero({ t }: HeroProps) {
   return (
     <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax gradient blobs */}
-      <motion.div style={{ y: blob1Y }} className="absolute top-10 left-0 w-[500px] h-[500px] bg-amber-400/20 dark:bg-amber-600/10 rounded-full blur-[120px] -z-10" />
-      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-orange-400/15 dark:bg-orange-600/10 rounded-full blur-[120px] -z-10" />
+      <motion.div style={{ y: blob1Y }} className="absolute top-10 left-0 w-[500px] h-[500px] bg-emerald-400/20 dark:bg-emerald-600/10 rounded-full blur-[120px] -z-10" />
+      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-400/15 dark:bg-emerald-600/10 rounded-full blur-[120px] -z-10" />
 
       {/* Desktop: split layout | Mobile: stacked */}
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-0">
@@ -49,7 +49,7 @@ export function Hero({ t }: HeroProps) {
             >
               <span className="text-slate-900 dark:text-white block">Vitor</span>
               <span className="text-slate-900 dark:text-white block">Carnevalli</span>
-              <span className="block bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent animate-gradient">
+              <span className="block bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-700 dark:from-emerald-400 dark:via-emerald-300 dark:to-emerald-500 bg-clip-text text-transparent animate-gradient">
                 de Almeida
               </span>
             </motion.h1>
@@ -110,20 +110,20 @@ export function Hero({ t }: HeroProps) {
               <div
                 className="absolute -inset-[1px] rounded-3xl animate-gradient opacity-60"
                 style={{
-                  background: 'linear-gradient(135deg, #f59e0b, #f97316, #f59e0b)',
+                  background: 'linear-gradient(135deg, #059669, #10b981, #059669)',
                   backgroundSize: '200% 200%',
                 }}
               />
 
               {/* Glass interior */}
               <div className="relative w-full h-full rounded-3xl glass flex flex-col items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-emerald-600/5" />
 
                 {/* Cantos decorativos */}
-                <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-amber-400/50 rounded-tl" />
-                <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-amber-400/50 rounded-tr" />
-                <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-orange-400/50 rounded-bl" />
-                <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-orange-400/50 rounded-br" />
+                <div className="absolute top-4 left-4 w-5 h-5 border-t-2 border-l-2 border-emerald-500/50 rounded-tl" />
+                <div className="absolute top-4 right-4 w-5 h-5 border-t-2 border-r-2 border-emerald-500/50 rounded-tr" />
+                <div className="absolute bottom-4 left-4 w-5 h-5 border-b-2 border-l-2 border-emerald-500/50 rounded-bl" />
+                <div className="absolute bottom-4 right-4 w-5 h-5 border-b-2 border-r-2 border-emerald-500/50 rounded-br" />
 
                 <span
                   className="relative text-7xl font-black text-slate-300 dark:text-slate-600 select-none"
@@ -148,7 +148,7 @@ export function Hero({ t }: HeroProps) {
         <motion.svg
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="w-5 h-5 text-amber-500"
+          className="w-5 h-5 text-emerald-600 dark:text-emerald-400"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

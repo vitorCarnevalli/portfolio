@@ -10,7 +10,7 @@ interface SkillsProps {
 export function Skills({ t }: SkillsProps) {
   return (
     <section id="skills" className="py-24 px-8 lg:px-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-50/50 dark:via-amber-950/10 to-transparent -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-50/50 dark:via-emerald-950/10 to-transparent -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header — left aligned on desktop */}
@@ -27,7 +27,7 @@ export function Skills({ t }: SkillsProps) {
           >
             {t('skills.title')}
           </h2>
-          <div className="w-12 h-1 rounded-full bg-amber-500 mb-3" />
+          <div className="w-12 h-1 rounded-full bg-emerald-600 dark:bg-emerald-400 mb-3" />
           <p className="text-slate-500 dark:text-slate-400 text-lg">
             {t('skills.subtitle')}
           </p>

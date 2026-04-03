@@ -12,7 +12,7 @@ export function BackgroundGrid() {
       <svg width="100%" height="100%">
         <defs>
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <circle cx="20" cy="20" r="1" fill="#f59e0b" />
+            <circle cx="20" cy="20" r="1" fill="#059669" />
           </pattern>
         </defs>
         <rect width="100%" height="200%" fill="url(#grid)" />

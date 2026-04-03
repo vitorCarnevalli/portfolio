@@ -22,7 +22,7 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
         rel="noopener noreferrer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="group relative block glass rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/10"
+        className="group relative block glass rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/10"
       >
         {/* Número de fundo */}
         <div
@@ -32,9 +32,9 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
           {String(index + 1).padStart(2, '0')}
         </div>
 
-        {/* Borda esquerda amber */}
+        {/* Borda esquerda emerald */}
         <motion.div
-          className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-amber-400 to-orange-500 rounded-l-2xl origin-top"
+          className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-emerald-500 to-emerald-700 dark:from-emerald-400 dark:to-emerald-600 rounded-l-2xl origin-top"
           animate={{ scaleY: hovered ? 1 : 0 }}
           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] as const }}
         />
@@ -45,7 +45,7 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
             {project.tags.map(tag => (
               <span
                 key={tag}
-                className="px-2.5 py-0.5 rounded-md text-xs font-medium tracking-wide border border-amber-200/60 dark:border-amber-500/20 text-amber-700 dark:text-amber-400 bg-amber-50/50 dark:bg-amber-500/5"
+                className="px-2.5 py-0.5 rounded-md text-xs font-medium tracking-wide border border-emerald-200/60 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-500/5"
               >
                 {tag}
               </span>
@@ -61,7 +61,7 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
               {t(project.nameKey)}
             </h3>
             <motion.svg
-              className="w-5 h-5 text-amber-500 flex-shrink-0 mt-1"
+              className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-1"
               animate={hovered ? { x: 3, y: -3 } : { x: 0, y: 0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               fill="none"
@@ -84,7 +84,7 @@ function ProjectCard({ project, index, t }: { project: (typeof projects)[number]
 export function Projects({ t }: ProjectsProps) {
   return (
     <section id="projects" className="py-24 px-8 lg:px-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-50/50 dark:via-amber-950/10 to-transparent -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-50/50 dark:via-emerald-950/10 to-transparent -z-10" />
 
       <div className="max-w-7xl mx-auto">
         <motion.div

@@ -67,7 +67,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             className="relative group"
             data-hover
           >
-            <span className="text-xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-heading)' }}>
+            <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-400 dark:to-emerald-300 bg-clip-text text-transparent" style={{ fontFamily: 'var(--font-heading)' }}>
               VA
             </span>
           </motion.a>
@@ -82,7 +82,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   onClick={() => scrollTo(link.href)}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-xl ${
                     isActive
-                      ? 'text-amber-600 dark:text-amber-400'
+                      ? 'text-emerald-700 dark:text-emerald-400'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-slate-800/50'
                   }`}
                   data-hover
@@ -91,7 +91,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   {isActive && (
                     <motion.span
                       layoutId="active-indicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-amber-500"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-emerald-600 dark:bg-emerald-400"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -185,7 +185,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   onClick={() => scrollTo(link.href)}
                   className={`block w-full text-left py-3 px-4 text-sm font-medium rounded-xl transition-colors ${
                     isActive
-                      ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30'
+                      ? 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50'
                   }`}
                 >
