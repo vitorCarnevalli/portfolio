@@ -21,7 +21,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
   }, [])
 
   useEffect(() => {
-    const sections = ['about', 'skills', 'experience', 'projects']
+    const sections = ['about', 'skills', 'experience', 'projects', 'contact']
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
