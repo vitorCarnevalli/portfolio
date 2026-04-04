@@ -108,12 +108,6 @@ export function Hero({ t }: HeroProps) {
             animate="visible"
             className="relative h-auto lg:h-[600px] flex items-center justify-center pb-4 lg:pb-0"
           >
-            {/* Dot grid decoration */}
-            <div className="absolute inset-0 opacity-15 dark:opacity-08" style={{
-              backgroundImage: 'radial-gradient(circle, #0A0A0A 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }} />
-
             {/* Photo container */}
             <div className="relative z-10 w-56 lg:w-[280px]" style={{ aspectRatio: '3/4' }}>
               {/* Borda */}
