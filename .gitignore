@@ -25,6 +25,7 @@ dist-ssr
 
 # Claude Code
 CLAUDE.md
+docs/
 .agents/
 .claude/
 skills-lock.json
