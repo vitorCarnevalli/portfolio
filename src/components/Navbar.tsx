@@ -47,8 +47,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
   const scrollTo = (href: string) => {
     setMenuOpen(false)
-    const el = document.querySelector(href)
-    el?.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      el?.scrollIntoView({ behavior: 'smooth' })
+    }, 300)
   }
 
   return (
