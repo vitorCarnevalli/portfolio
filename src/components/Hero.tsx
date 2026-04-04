@@ -27,8 +27,8 @@ export function Hero({ t }: HeroProps) {
   return (
     <section id="about" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Parallax gradient blobs */}
-      <motion.div style={{ y: blob1Y }} className="absolute top-10 left-0 w-[500px] h-[500px] bg-blue-400/10 dark:bg-blue-600/08 rounded-full blur-[120px] -z-10" />
-      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-400/08 dark:bg-blue-600/06 rounded-full blur-[120px] -z-10" />
+      <motion.div style={{ y: blob1Y }} className="absolute top-10 left-0 w-[500px] h-[500px] bg-neutral-400/08 dark:bg-neutral-600/06 rounded-full blur-[120px] -z-10" />
+      <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-neutral-400/06 dark:bg-neutral-600/04 rounded-full blur-[120px] -z-10" />
 
       {/* Desktop: split layout | Mobile: stacked */}
       <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 py-20 lg:py-0">
@@ -84,7 +84,7 @@ export function Hero({ t }: HeroProps) {
                 href="https://www.linkedin.com/in/vitor-carnevalli-de-almeida/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 w-full sm:w-auto bg-[#0077b5] text-white text-sm font-bold hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 w-full sm:w-auto border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-[#0A0A0A] dark:text-[#F0EFE9] text-sm font-bold hover:-translate-y-0.5 transition-all duration-200"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 LinkedIn
@@ -116,14 +116,8 @@ export function Hero({ t }: HeroProps) {
 
             {/* Photo container */}
             <div className="relative z-10 w-56 lg:w-[280px]" style={{ aspectRatio: '3/4' }}>
-              {/* Borda animada */}
-              <div
-                className="absolute -inset-[2px] rounded-3xl animate-gradient"
-                style={{
-                  background: 'linear-gradient(135deg, #0057d9, #0066FF, #60a5fa, #0057d9)',
-                  backgroundSize: '200% 200%',
-                }}
-              />
+              {/* Borda */}
+              <div className="absolute -inset-[2px] rounded-3xl bg-[#0A0A0A] dark:bg-[#F0EFE9]" />
 
               {/* Foto */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden">
@@ -137,7 +131,7 @@ export function Hero({ t }: HeroProps) {
 
               {/* Badge decorativo */}
               <div className="absolute -bottom-4 -right-4 border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] rounded-xl px-4 py-2 flex items-center gap-2 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#0066FF] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#0A0A0A] dark:bg-[#F0EFE9] animate-pulse" />
                 <span className="text-xs font-medium text-[#0A0A0A] dark:text-[#F0EFE9]" style={{ fontFamily: 'var(--font-mono)' }}>{t('hero.openToWork')}</span>
               </div>
             </div>

@@ -61,9 +61,6 @@
   },
   "footer": {
     "rights": "Todos os direitos reservados",
-    "madeWith": "Feito com React + Tailwind",
-    "cta": "Vamos conversar?",
-    "ctaDesc": "Aberto a oportunidades e colaborações. Pode entrar em contato por qualquer canal.",
-    "contactLabel": "Contato"
+    "madeWith": "Feito com React + Tailwind"
   }
 }
