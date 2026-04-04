@@ -85,7 +85,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   onClick={() => scrollTo(link.href)}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-[#0066FF]'
+                      ? 'text-[#0A0A0A] dark:text-[#F0EFE9]'
                       : 'text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9]'
                   }`}
                   data-hover
@@ -94,7 +94,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   {isActive && (
                     <motion.span
                       layoutId="active-indicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[#0066FF]"
+                      className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[#0A0A0A] dark:bg-[#F0EFE9]"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -116,12 +116,12 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   {lang === l && (
                     <motion.div
                       layoutId="lang-indicator"
-                      className="absolute inset-0 rounded-md bg-[#0066FF]"
+                      className="absolute inset-0 rounded-md bg-[#0A0A0A] dark:bg-[#F0EFE9]"
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     />
                   )}
                   <span className={`relative z-10 transition-colors duration-150 ${
-                    lang === l ? 'text-white' : 'text-[#888] dark:text-[#555]'
+                    lang === l ? 'text-white dark:text-[#0A0A0A]' : 'text-[#888] dark:text-[#555]'
                   }`}>
                     {l.toUpperCase()}
                   </span>
@@ -131,15 +131,33 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-sm transition-opacity duration-150 hover:opacity-70 active:scale-95"
               aria-label="Toggle theme"
               data-hover
+              className="relative flex items-center rounded-full transition-all duration-200 focus:outline-none"
+              style={{
+                width: 52,
+                height: 28,
+                background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                boxShadow: theme === 'light'
+                  ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
+                  : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+              }}
             >
-              {theme === 'light' ? (
-                <svg className="w-4 h-4 text-[#6B6B6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-              ) : (
-                <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-              )}
+              <motion.div
+                layout
+                transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                className="rounded-full"
+                style={{
+                  width: 20,
+                  height: 20,
+                  position: 'absolute',
+                  left: theme === 'light' ? 4 : 28,
+                  background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                  boxShadow: theme === 'light'
+                    ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
+                    : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                }}
+              />
             </button>
           </div>
 
@@ -147,14 +165,32 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111]"
               aria-label="Toggle theme"
+              className="relative flex items-center rounded-full focus:outline-none"
+              style={{
+                width: 52,
+                height: 28,
+                background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                boxShadow: theme === 'light'
+                  ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
+                  : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+              }}
             >
-              {theme === 'light' ? (
-                <svg className="w-4 h-4 text-[#6B6B6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-              ) : (
-                <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-              )}
+              <motion.div
+                layout
+                transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                className="rounded-full"
+                style={{
+                  width: 20,
+                  height: 20,
+                  position: 'absolute',
+                  left: theme === 'light' ? 4 : 28,
+                  background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                  boxShadow: theme === 'light'
+                    ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
+                    : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                }}
+              />
             </button>
             <button
               className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-[#6B6B6B] dark:text-[#888]"
@@ -188,7 +224,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   onClick={() => scrollTo(link.href)}
                   className={`block w-full text-left py-3 px-4 text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-[#0066FF]'
+                      ? 'text-[#0A0A0A] dark:text-[#F0EFE9]'
                       : 'text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9]'
                   }`}
                 >
@@ -207,12 +243,12 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                     {lang === l && (
                       <motion.div
                         layoutId="lang-indicator-mobile"
-                        className="absolute inset-0 rounded-md bg-[#0066FF]"
+                        className="absolute inset-0 rounded-md bg-[#0A0A0A] dark:bg-[#F0EFE9]"
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
                     )}
                     <span className={`relative z-10 transition-colors duration-150 ${
-                      lang === l ? 'text-white' : 'text-[#888] dark:text-[#555]'
+                      lang === l ? 'text-white dark:text-[#0A0A0A]' : 'text-[#888] dark:text-[#555]'
                     }`}>
                       {l.toUpperCase()}
                     </span>

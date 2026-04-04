@@ -31,7 +31,7 @@ export function Skills({ t }: SkillsProps) {
           >
             {t('skills.title')}
           </h2>
-          <div className="w-12 h-[2px] bg-[#0066FF] mb-3" />
+          <div className="w-12 h-[2px] bg-[#0A0A0A] dark:bg-[#F0EFE9] mb-3" />
           <p className="text-[#6B6B6B] dark:text-[#888] text-lg">
             {t('skills.subtitle')}
           </p>
@@ -61,7 +61,7 @@ export function Skills({ t }: SkillsProps) {
             {tools.map((tool) => (
               <span
                 key={tool}
-                className="flex items-center gap-2.5 px-5 py-2.5 border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-sm font-medium text-[#6B6B6B] dark:text-[#888] hover:text-[#0066FF] dark:hover:text-[#0066FF] transition-colors"
+                className="flex items-center gap-2.5 px-5 py-2.5 border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-sm font-medium text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9] transition-colors"
                 style={{ fontFamily: 'var(--font-mono)' }}
               >
                 {toolIcons[tool] ? (

@@ -7,11 +7,6 @@ export interface Skill {
   icon: string
 }
 
-export const levelPercentage: Record<SkillLevel, number> = {
-  beginner: 33,
-  intermediate: 66,
-  advanced: 100,
-}
 
 export const skills: Skill[] = [
   { name: 'TypeScript', level: 'intermediate', color: '#3178c6', icon: 'devicon-typescript-plain colored' },

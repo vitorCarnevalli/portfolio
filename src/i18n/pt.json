@@ -45,7 +45,11 @@
     "subtitle": "Alguns dos meus trabalhos",
     "portfolio": {
       "name": "Portfólio Pessoal",
-      "description": "Este site! Feito com React, Vite e Tailwind CSS."
+      "description": "Este site! Feito com React, Vite e Tailwind CSS. Design editorial preto e branco, com animações em Framer Motion, fundo 3D em Three.js e toggle neumórfico de tema."
+    },
+    "andrea": {
+      "name": "Andrea Engenharia",
+      "description": "Site institucional para escritório de engenharia. Apresentação de serviços, portfólio de obras e formulário de contato. Desenvolvido com React e Tailwind CSS."
     },
     "comingSoon": "Em breve..."
   },

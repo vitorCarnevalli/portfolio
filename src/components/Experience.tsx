@@ -56,46 +56,59 @@ export function Experience({ t, tArray }: ExperienceProps) {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as const }}
             >
-              {/* Top meta row */}
-              <div className="flex items-baseline justify-between mb-3">
-                <span
-                  className="text-xs text-[#6B6B6B] dark:text-[#555] tracking-widest uppercase"
-                  style={{ fontFamily: 'var(--font-mono)' }}
-                >
-                  {item.org} — {item.period}
-                </span>
-              </div>
+              {/* Separador superior */}
+              <div className="h-px bg-[#E5E5E0] dark:bg-[#1E1E1E] mb-8" />
 
-              {/* Divider */}
-              <div className="h-px bg-[#0A0A0A] dark:bg-[#F0EFE9] mb-6" />
+              {/* Grid CV: coluna esquerda fixa + coluna direita flex */}
+              <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-4 md:gap-12 mb-12">
 
-              {/* Role — newspaper headline */}
-              <h3
-                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-[#0A0A0A] dark:text-[#F0EFE9] mb-8"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                {item.role}
-              </h3>
-
-              {/* Description */}
-              <p className="text-base text-[#6B6B6B] dark:text-[#888] leading-relaxed max-w-2xl mb-6">
-                {item.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-14">
-                {item.tags.map(tag => (
+                {/* Coluna esquerda: período + organização */}
+                <div className="flex flex-row md:flex-col gap-2 md:gap-1">
                   <span
-                    key={tag}
-                    className="text-xs font-medium px-2.5 py-1 border border-[#E5E5E0] dark:border-[#1E1E1E] text-[#6B6B6B] dark:text-[#888]"
+                    className="text-xs text-[#6B6B6B] dark:text-[#888] tracking-widest uppercase"
                     style={{ fontFamily: 'var(--font-mono)' }}
                   >
-                    {tag}
+                    {item.period}
                   </span>
-                ))}
+                  <span
+                    className="text-xs text-[#6B6B6B] dark:text-[#888] tracking-widest uppercase font-semibold"
+                    style={{ fontFamily: 'var(--font-mono)' }}
+                  >
+                    {item.org}
+                  </span>
+                </div>
+
+                {/* Coluna direita: cargo + descrição + tags */}
+                <div>
+                  <h3
+                    className="text-2xl font-bold text-[#0A0A0A] dark:text-[#F0EFE9] leading-tight tracking-tight mb-3"
+                    style={{ fontFamily: 'var(--font-heading)' }}
+                  >
+                    {item.role}
+                  </h3>
+
+                  <p className="text-base text-[#6B6B6B] dark:text-[#888] leading-relaxed mb-5">
+                    {item.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {item.tags.map(tag => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium px-2.5 py-1 border border-[#E5E5E0] dark:border-[#1E1E1E] text-[#6B6B6B] dark:text-[#888]"
+                        style={{ fontFamily: 'var(--font-mono)' }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.article>
           ))}
+
+          {/* Separador final */}
+          <div className="h-px bg-[#E5E5E0] dark:bg-[#1E1E1E]" />
         </div>
       </div>
     </section>

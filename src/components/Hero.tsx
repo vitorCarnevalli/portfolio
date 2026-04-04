@@ -11,12 +11,12 @@ const staggerContainer = {
 
 const fadeUp = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const } },
 }
 
 const scaleIn = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.4, ease: 'easeOut' } },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const } },
 }
 
 export function Hero({ t }: HeroProps) {
@@ -49,7 +49,7 @@ export function Hero({ t }: HeroProps) {
             >
               <span className="text-[#0A0A0A] dark:text-[#F0EFE9] block">Vitor</span>
               <span className="text-[#0A0A0A] dark:text-[#F0EFE9] block">Carnevalli</span>
-              <span className="block text-[#0066FF]">
+              <span className="block text-[#6B6B6B] dark:text-[#888]">
                 de Almeida
               </span>
             </motion.h1>
@@ -61,11 +61,11 @@ export function Hero({ t }: HeroProps) {
 
             {/* Description */}
             <motion.div variants={fadeUp} className="max-w-lg mb-10 text-sm leading-relaxed" style={{ fontFamily: 'var(--font-mono)' }}>
-              <span className="text-[#0066FF]">{'<bio>'}</span>
+              <span className="text-[#6B6B6B] dark:text-[#888]">{'<bio>'}</span>
               <p className="text-[#6B6B6B] dark:text-[#888] pl-4 my-1">
                 {t('hero.description')}
               </p>
-              <span className="text-[#0066FF]">{'</bio>'}</span>
+              <span className="text-[#6B6B6B] dark:text-[#888]">{'</bio>'}</span>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -110,7 +110,7 @@ export function Hero({ t }: HeroProps) {
           >
             {/* Dot grid decoration */}
             <div className="absolute inset-0 opacity-15 dark:opacity-08" style={{
-              backgroundImage: 'radial-gradient(circle, #0066FF 1px, transparent 1px)',
+              backgroundImage: 'radial-gradient(circle, #0A0A0A 1px, transparent 1px)',
               backgroundSize: '24px 24px',
             }} />
 
@@ -156,7 +156,7 @@ export function Hero({ t }: HeroProps) {
         <motion.svg
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="w-5 h-5 text-[#0066FF]"
+          className="w-5 h-5 text-[#6B6B6B] dark:text-[#888]"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
