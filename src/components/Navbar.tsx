@@ -105,29 +105,48 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
 
           {/* Direita: Controles */}
           <div className="hidden md:flex items-center gap-2">
-            <div className="flex items-center border border-[#E5E5E0] dark:border-[#1E1E1E] rounded-lg p-0.5 bg-[#FFFFFF] dark:bg-[#111111]">
-              {(['pt', 'en'] as const).map(l => (
-                <button
-                  key={l}
-                  onClick={() => lang !== l && toggleLang()}
-                  className="relative px-2.5 py-1.5 rounded-md text-xs font-bold"
-                  data-hover
-                >
-                  {lang === l && (
-                    <motion.div
-                      layoutId="lang-indicator"
-                      className="absolute inset-0 rounded-md bg-[#0A0A0A] dark:bg-[#F0EFE9]"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className={`relative z-10 transition-colors duration-150 ${
-                    lang === l ? 'text-white dark:text-[#0A0A0A]' : 'text-[#888] dark:text-[#555]'
-                  }`}>
-                    {l.toUpperCase()}
-                  </span>
-                </button>
-              ))}
-            </div>
+            <button
+              onClick={toggleLang}
+              aria-label="Toggle language"
+              data-hover
+              className="relative flex items-center rounded-full focus:outline-none"
+              style={{
+                width: 64,
+                height: 28,
+                background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                boxShadow: theme === 'light'
+                  ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
+                  : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+              }}
+            >
+              <motion.div
+                layout
+                transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                className="rounded-full absolute"
+                style={{
+                  width: 28,
+                  height: 20,
+                  top: 4,
+                  left: lang === 'pt' ? 4 : 32,
+                  background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                  boxShadow: theme === 'light'
+                    ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
+                    : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                }}
+              />
+              <span className="absolute left-0 w-1/2 text-center text-[10px] font-bold z-10" style={{
+                color: lang === 'pt'
+                  ? (theme === 'light' ? '#0A0A0A' : '#F0EFE9')
+                  : (theme === 'light' ? '#999' : '#555'),
+                fontFamily: 'var(--font-mono)',
+              }}>PT</span>
+              <span className="absolute right-0 w-1/2 text-center text-[10px] font-bold z-10" style={{
+                color: lang === 'en'
+                  ? (theme === 'light' ? '#0A0A0A' : '#F0EFE9')
+                  : (theme === 'light' ? '#999' : '#555'),
+                fontFamily: 'var(--font-mono)',
+              }}>EN</span>
+            </button>
 
             <button
               onClick={toggleTheme}
@@ -233,28 +252,47 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               )
             })}
             <div className="pt-3 border-t border-[#E5E5E0] dark:border-[#1E1E1E]">
-              <div className="flex items-center border border-[#E5E5E0] dark:border-[#1E1E1E] rounded-lg p-0.5 w-fit bg-[#FFFFFF] dark:bg-[#111111]">
-                {(['pt', 'en'] as const).map(l => (
-                  <button
-                    key={l}
-                    onClick={() => { if (lang !== l) toggleLang(); setMenuOpen(false); }}
-                    className="relative px-3 py-1.5 rounded-md text-xs font-bold"
-                  >
-                    {lang === l && (
-                      <motion.div
-                        layoutId="lang-indicator-mobile"
-                        className="absolute inset-0 rounded-md bg-[#0A0A0A] dark:bg-[#F0EFE9]"
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                    <span className={`relative z-10 transition-colors duration-150 ${
-                      lang === l ? 'text-white dark:text-[#0A0A0A]' : 'text-[#888] dark:text-[#555]'
-                    }`}>
-                      {l.toUpperCase()}
-                    </span>
-                  </button>
-                ))}
-              </div>
+              <button
+                onClick={() => { toggleLang(); setMenuOpen(false); }}
+                aria-label="Toggle language"
+                className="relative flex items-center rounded-full focus:outline-none"
+                style={{
+                  width: 64,
+                  height: 28,
+                  background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                  boxShadow: theme === 'light'
+                    ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
+                    : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+                }}
+              >
+                <motion.div
+                  layout
+                  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                  className="rounded-full absolute"
+                  style={{
+                    width: 28,
+                    height: 20,
+                    top: 4,
+                    left: lang === 'pt' ? 4 : 32,
+                    background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                    boxShadow: theme === 'light'
+                      ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
+                      : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                  }}
+                />
+                <span className="absolute left-0 w-1/2 text-center text-[10px] font-bold z-10" style={{
+                  color: lang === 'pt'
+                    ? (theme === 'light' ? '#0A0A0A' : '#F0EFE9')
+                    : (theme === 'light' ? '#999' : '#555'),
+                  fontFamily: 'var(--font-mono)',
+                }}>PT</span>
+                <span className="absolute right-0 w-1/2 text-center text-[10px] font-bold z-10" style={{
+                  color: lang === 'en'
+                    ? (theme === 'light' ? '#0A0A0A' : '#F0EFE9')
+                    : (theme === 'light' ? '#999' : '#555'),
+                  fontFamily: 'var(--font-mono)',
+                }}>EN</span>
+              </button>
             </div>
           </div>
         </motion.div>
