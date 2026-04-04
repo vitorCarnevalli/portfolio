@@ -91,7 +91,7 @@ export function Hero({ t }: HeroProps) {
               </a>
 
               <a
-                href="/curriculo.pdf"
+                href={`${import.meta.env.BASE_URL}curriculo.pdf`}
                 download
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 w-full sm:w-auto border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-[#0A0A0A] dark:text-[#F0EFE9] text-sm font-bold hover:-translate-y-0.5 transition-all duration-200"
               >
@@ -122,7 +122,7 @@ export function Hero({ t }: HeroProps) {
               {/* Foto */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden">
                 <img
-                  src="/profile.jpeg"
+                  src={`${import.meta.env.BASE_URL}profile.jpeg`}
                   alt="Vitor Carnevalli de Almeida"
                   className="w-full h-full object-cover object-top"
                 />
