@@ -113,10 +113,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               style={{
                 width: 64,
                 height: 28,
-                background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                background: theme === 'light' ? '#D4D4D4' : '#242424',
                 boxShadow: theme === 'light'
-                  ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
-                  : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+                  ? '5px 5px 10px #AAAAAA, -5px -5px 10px #FFFFFF'
+                  : '5px 5px 10px #0A0A0A, -5px -5px 10px #333333',
               }}
             >
               <motion.div
@@ -128,10 +128,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   height: 20,
                   top: 4,
                   left: lang === 'pt' ? 4 : 32,
-                  background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                  background: theme === 'light' ? '#EFEFEF' : '#2E2E2E',
                   boxShadow: theme === 'light'
-                    ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
-                    : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                    ? '2px 2px 6px #AAAAAA, -2px -2px 6px #FFFFFF'
+                    : '2px 2px 6px #0A0A0A, -2px -2px 6px #383838',
                 }}
               />
               <span className="absolute left-0 w-1/2 text-center text-[10px] font-bold z-10" style={{
@@ -156,10 +156,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               style={{
                 width: 52,
                 height: 28,
-                background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                background: theme === 'light' ? '#D4D4D4' : '#242424',
                 boxShadow: theme === 'light'
-                  ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
-                  : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+                  ? '5px 5px 10px #AAAAAA, -5px -5px 10px #FFFFFF'
+                  : '5px 5px 10px #0A0A0A, -5px -5px 10px #333333',
               }}
             >
               <motion.div
@@ -171,10 +171,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   height: 20,
                   position: 'absolute',
                   left: theme === 'light' ? 4 : 28,
-                  background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                  background: theme === 'light' ? '#EFEFEF' : '#2E2E2E',
                   boxShadow: theme === 'light'
-                    ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
-                    : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                    ? '2px 2px 6px #AAAAAA, -2px -2px 6px #FFFFFF'
+                    : '2px 2px 6px #0A0A0A, -2px -2px 6px #383838',
                 }}
               />
             </button>
@@ -189,10 +189,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               style={{
                 width: 52,
                 height: 28,
-                background: theme === 'light' ? '#E0E0E0' : '#1E1E1E',
+                background: theme === 'light' ? '#D4D4D4' : '#242424',
                 boxShadow: theme === 'light'
-                  ? '4px 4px 8px #BEBEBE, -4px -4px 8px #FFFFFF'
-                  : '4px 4px 8px #0A0A0A, -4px -4px 8px #2A2A2A',
+                  ? '5px 5px 10px #AAAAAA, -5px -5px 10px #FFFFFF'
+                  : '5px 5px 10px #0A0A0A, -5px -5px 10px #333333',
               }}
             >
               <motion.div
@@ -204,10 +204,10 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                   height: 20,
                   position: 'absolute',
                   left: theme === 'light' ? 4 : 28,
-                  background: theme === 'light' ? '#F5F5F5' : '#2A2A2A',
+                  background: theme === 'light' ? '#EFEFEF' : '#2E2E2E',
                   boxShadow: theme === 'light'
-                    ? '2px 2px 5px #BEBEBE, -2px -2px 5px #FFFFFF'
-                    : '2px 2px 5px #0A0A0A, -2px -2px 5px #3A3A3A',
+                    ? '2px 2px 6px #AAAAAA, -2px -2px 6px #FFFFFF'
+                    : '2px 2px 6px #0A0A0A, -2px -2px 6px #383838',
                 }}
               />
             </button>
