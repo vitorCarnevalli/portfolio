@@ -20,7 +20,14 @@ export function useSmoothScroll() {
 
     requestAnimationFrame(raf)
 
+    const onStop = () => lenis.stop()
+    const onStart = () => lenis.start()
+    window.addEventListener('lenis:stop', onStop)
+    window.addEventListener('lenis:start', onStart)
+
     return () => {
+      window.removeEventListener('lenis:stop', onStop)
+      window.removeEventListener('lenis:start', onStart)
       lenis.destroy()
     }
   }, [])

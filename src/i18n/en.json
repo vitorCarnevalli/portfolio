@@ -46,11 +46,11 @@
     "subtitle": "Some of my work",
     "portfolio": {
       "name": "Personal Portfolio",
-      "description": "This website! Built with React, Vite, and Tailwind CSS. Editorial black-and-white design with Framer Motion animations, Three.js 3D background, and a neumorphic theme toggle."
+      "description": "My space on the internet. A place to show who I am, what I've learned, and what I'm building. Made with attention to detail — and one more lesson learned along the way."
     },
     "andrea": {
       "name": "Andrea Engenharia",
-      "description": "Institutional website for an engineering firm. Features service presentation, project portfolio, and contact form. Built with React and Tailwind CSS."
+      "description": "Complete refactoring and modernization of Andrea Engenharia's institutional website. The project involved restructuring the company's outdated digital presence, migrating it to a modern architecture. The main focus was replacing the legacy structure with a faster, responsive interface with better usability for clients."
     },
     "comingSoon": "Coming soon..."
   },

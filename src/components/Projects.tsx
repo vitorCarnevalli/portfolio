@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '../data/projects'
 import type { Project } from '../data/projects'
@@ -7,11 +7,130 @@ interface ProjectsProps {
   t: (key: string) => string
 }
 
+function BeforeAfterSlider({ before, after, altBefore, altAfter }: {
+  before: string
+  after: string
+  altBefore: string
+  altAfter: string
+}) {
+  const [position, setPosition] = useState(50)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const dragging = useRef(false)
+
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width))
+    setPosition((x / rect.width) * 100)
+  }, [])
+
+  const onMouseMove = useCallback((e: MouseEvent) => {
+    if (dragging.current) updatePosition(e.clientX)
+  }, [updatePosition])
+
+  const onMouseUp = useCallback(() => { dragging.current = false }, [])
+
+  useEffect(() => {
+    window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mouseup', onMouseUp)
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mouseup', onMouseUp)
+    }
+  }, [onMouseMove, onMouseUp])
+
+  // Previne scroll da página enquanto arrasta no touch
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const onTouchMove = (e: TouchEvent) => { e.preventDefault(); updatePosition(e.touches[0].clientX) }
+    el.addEventListener('touchmove', onTouchMove, { passive: false })
+    return () => el.removeEventListener('touchmove', onTouchMove)
+  }, [updatePosition])
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full overflow-hidden select-none cursor-col-resize"
+      style={{ aspectRatio: '16/9' }}
+      onMouseDown={(e) => { dragging.current = true; updatePosition(e.clientX) }}
+      onTouchStart={(e) => updatePosition(e.touches[0].clientX)}
+    >
+      {/* Imagem nova (fundo) */}
+      <img
+        src={after}
+        alt={altAfter}
+        className="absolute inset-0 w-full h-full object-cover object-top"
+        draggable={false}
+      />
+
+      {/* Imagem antiga (clipada pela esquerda) */}
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{ width: `${position}%` }}
+      >
+        <img
+          src={before}
+          alt={altBefore}
+          className="absolute inset-0 w-full h-full object-cover object-top"
+          style={{ width: `${10000 / position}%`, maxWidth: 'none' }}
+          draggable={false}
+        />
+      </div>
+
+      {/* Linha divisória */}
+      <div
+        className="absolute top-0 bottom-0"
+        style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
+      >
+        {/* Linha com glow */}
+        <div className="absolute inset-0 w-px mx-auto" style={{ background: 'rgba(255,255,255,0.9)', boxShadow: '0 0 8px rgba(255,255,255,0.6)' }} />
+
+        {/* Handle — pílula moderna */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-[3px]"
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: 10,
+            background: 'rgba(255,255,255,0.95)',
+            backdropFilter: 'blur(6px)',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
+          }}
+        >
+          <span style={{ width: 2, height: 14, borderRadius: 2, background: '#555' }} />
+          <span style={{ width: 2, height: 14, borderRadius: 2, background: '#555' }} />
+        </div>
+      </div>
+
+      {/* Labels */}
+      <span
+        className="absolute top-2 left-2 text-[10px] font-medium px-2 py-0.5 bg-black/50 text-white backdrop-blur-sm"
+        style={{ fontFamily: 'var(--font-mono)' }}
+      >
+        Antes
+      </span>
+      <span
+        className="absolute top-2 right-2 text-[10px] font-medium px-2 py-0.5 bg-black/50 text-white backdrop-blur-sm"
+        style={{ fontFamily: 'var(--font-mono)' }}
+      >
+        Depois
+      </span>
+    </div>
+  )
+}
+
 function ProjectModal({ project, onClose, t }: { project: Project; onClose: () => void; t: (k: string) => string }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    window.dispatchEvent(new Event('lenis:stop'))
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+      window.dispatchEvent(new Event('lenis:start'))
+    }
   }, [onClose])
 
   return (
@@ -20,7 +139,7 @@ function ProjectModal({ project, onClose, t }: { project: Project; onClose: () =
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-20 pb-8"
+      className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-20 pb-8 overflow-y-auto"
       style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}
       onClick={onClose}
     >
@@ -50,6 +169,35 @@ function ProjectModal({ project, onClose, t }: { project: Project; onClose: () =
             </svg>
           </button>
         </div>
+
+        {/* Slider antes/depois */}
+        {project.coverImage && project.beforeImage && (
+          <div className="mb-6">
+            <BeforeAfterSlider
+              before={project.beforeImage}
+              after={project.coverImage}
+              altBefore={`${t(project.nameKey)} — antes`}
+              altAfter={`${t(project.nameKey)} — depois`}
+            />
+            <p
+              className="text-[10px] text-[#6B6B6B] dark:text-[#555] mt-1.5 text-center"
+              style={{ fontFamily: 'var(--font-mono)' }}
+            >
+              Arraste para comparar
+            </p>
+          </div>
+        )}
+
+        {/* Imagem simples (sem before/after) */}
+        {project.coverImage && !project.beforeImage && (
+          <div className="mb-6 overflow-hidden border border-[#E5E5E0] dark:border-[#1E1E1E]">
+            <img
+              src={project.coverImage}
+              alt={t(project.nameKey)}
+              className="w-full object-cover"
+            />
+          </div>
+        )}
 
         {/* Descrição */}
         <p className="text-base text-[#6B6B6B] dark:text-[#888] leading-relaxed mb-6">
@@ -114,10 +262,20 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
         className="group cursor-pointer border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] hover:border-[#0A0A0A] dark:hover:border-[#F0EFE9] transition-colors duration-200 overflow-hidden"
       >
         {/* Cover */}
-        <div
-          className="h-40 w-full"
-          style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
-        />
+        {project.coverImage ? (
+          <div className="h-40 w-full overflow-hidden">
+            <img
+              src={project.coverImage}
+              alt={t(project.nameKey)}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+        ) : (
+          <div
+            className="h-40 w-full"
+            style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
+          />
+        )}
 
         {/* Conteúdo */}
         <div className="p-5">
