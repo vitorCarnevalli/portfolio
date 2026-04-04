@@ -129,11 +129,6 @@ export function Hero({ t }: HeroProps) {
                 <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
 
-              {/* Badge decorativo */}
-              <div className="absolute -bottom-4 -right-4 border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] rounded-xl px-4 py-2 flex items-center gap-2 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-[#0A0A0A] dark:bg-[#F0EFE9] animate-pulse" />
-                <span className="text-xs font-medium text-[#0A0A0A] dark:text-[#F0EFE9]" style={{ fontFamily: 'var(--font-mono)' }}>{t('hero.openToWork')}</span>
-              </div>
             </div>
           </motion.div>
 
