@@ -3,6 +3,7 @@ import { Hero } from './components/Hero'
 import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
+import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { BackgroundGrid } from './components/BackgroundGrid'
 import { useTheme } from './hooks/useTheme'
@@ -29,6 +30,7 @@ function App() {
         <Skills t={t} />
         <Experience t={t} tArray={tArray} />
         <Projects t={t} />
+        <Contact t={t} />
       </main>
       <Footer t={t} />
     </div>

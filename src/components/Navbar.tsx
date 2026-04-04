@@ -42,6 +42,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
     { key: 'nav.skills', href: '#skills' },
     { key: 'nav.experience', href: '#experience' },
     { key: 'nav.projects', href: '#projects' },
+    { key: 'nav.contact', href: '#contact' },
   ]
 
   const scrollTo = (href: string) => {

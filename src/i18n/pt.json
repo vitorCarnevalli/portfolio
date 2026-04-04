@@ -3,7 +3,8 @@
     "about": "Sobre",
     "skills": "Habilidades",
     "experience": "Experiência",
-    "projects": "Projetos"
+    "projects": "Projetos",
+    "contact": "Contato"
   },
   "hero": {
     "title": "Desenvolvedor Full Stack",
@@ -52,6 +53,11 @@
       "description": "Site institucional para escritório de engenharia. Apresentação de serviços, portfólio de obras e formulário de contato. Desenvolvido com React e Tailwind CSS."
     },
     "comingSoon": "Em breve..."
+  },
+  "contact": {
+    "title": "Contato",
+    "description": "Aberto a oportunidades, freelas e colaborações. Se tiver um projeto interessante ou quiser trocar uma ideia, é só chamar.",
+    "availability": "Disponível para novas oportunidades"
   },
   "footer": {
     "rights": "Todos os direitos reservados",

@@ -3,7 +3,8 @@
     "about": "About",
     "skills": "Skills",
     "experience": "Experience",
-    "projects": "Projects"
+    "projects": "Projects",
+    "contact": "Contact"
   },
   "hero": {
     "title": "Full Stack Developer",
@@ -52,6 +53,11 @@
       "description": "Institutional website for an engineering firm. Features service presentation, project portfolio, and contact form. Built with React and Tailwind CSS."
     },
     "comingSoon": "Coming soon..."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Open to opportunities, freelance work, and collaborations. If you have an interesting project or just want to talk, reach out.",
+    "availability": "Available for new opportunities"
   },
   "footer": {
     "rights": "All rights reserved",
