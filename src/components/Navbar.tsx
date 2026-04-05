@@ -231,6 +231,13 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
         </div>
 
         {/* Mobile menu */}
+        {menuOpen && (
+          <div
+            className="fixed inset-0 z-[-1] md:hidden"
+            onClick={() => setMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
         <motion.div
           initial={false}
           animate={menuOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
