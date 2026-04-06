@@ -3,9 +3,9 @@ import { skills, tools } from '../data/skills'
 import { SkillCard } from './SkillCard'
 
 const toolIcons: Record<string, string> = {
-  'Git':     'devicon-git-plain colored',
-  'MongoDB': 'devicon-mongodb-plain colored',
-  'VS Code': 'devicon-vscode-plain colored',
+  'Git':        'devicon-git-plain colored',
+  'GitHub':     'devicon-github-original colored',
+  'VS Code':    'devicon-vscode-plain colored',
 }
 
 interface SkillsProps {
