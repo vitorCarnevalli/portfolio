@@ -1,87 +1,103 @@
-# Portfólio — Vitor Carnevalli de Almeida
+# Vitor Carnevalli — Portfolio
 
-Site de portfólio pessoal — single-page React app com design editorial preto e branco, cena 3D interativa, dark mode com toggle neumórfico e i18n PT/EN.
+Portfolio pessoal de desenvolvedor com dark mode, dois idiomas e animações performáticas.
+
+[![Deploy](https://github.com/vitorCarnevalli/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/vitorCarnevalli/portfolio/actions/workflows/deploy.yml)
+![Node](https://img.shields.io/badge/node-22-brightgreen)
+![Vite](https://img.shields.io/badge/vite-8-646cff)
 
 🌐 **[vitorcarnevalli.github.io/portfolio](https://vitorcarnevalli.github.io/portfolio)**
+
+---
+
+## Visão geral
+
+SPA em React com seções de apresentação, habilidades, experiência e projetos. Alterna entre português e inglês sem recarregar a página. Dark mode persiste entre sessões. Todas as animações respeitam `prefers-reduced-motion`.
+
+O projeto **Andrea Engenharia** inclui um slider de antes/depois interativo para comparar o site antigo com o novo. Projetos abrem em modal com imagens e links diretos.
+
+![Preview](public/og-image.png)
+
+---
 
 ## Stack
 
 | Camada | Tecnologia |
 |---|---|
-| Framework | React 19 + TypeScript |
+| UI | React 19 + TypeScript |
 | Build | Vite 8 |
 | Estilo | Tailwind CSS 4 |
 | Animações | Framer Motion |
-| 3D | Three.js + @react-three/fiber + @react-three/drei |
-| Scroll suave | Lenis |
+| Scroll | Lenis |
+| Deploy | GitHub Pages via Actions |
 
-## Funcionalidades
+---
 
-- **Hero 3D** — cena interativa com formas geométricas que respondem ao cursor (desktop, lazy-loaded)
-- **Toggle neumórfico** — dark/light mode com pílula e sombras suaves, persistido em `localStorage`
-- **i18n PT / EN** — troca instantânea via toggle, strings em `src/i18n/*.json`
-- **Skills** — cards com ícone + badge de nível, paleta preto e branco
-- **Experiência** — layout estilo CV duas colunas (período + cargo)
-- **Projetos** — grid com cards, placeholder de capa, modal de detalhes e card do GitHub
-- **Contato** — seção dedicada com links para Email, LinkedIn, GitHub e WhatsApp
-- **Cursor customizado** — desativado em mobile/touch
-- Design responsivo mobile-first
+## Arquitetura
 
-## Início rápido
+Para entender o projeto por dentro — fluxo de dados, decisões técnicas, convenções de imagem e pipeline de deploy — leia o [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
+---
+
+## Começando
+
+**Pré-requisitos:** Node 22+
 
 ```bash
+git clone https://github.com/vitorCarnevalli/portfolio.git
+cd portfolio
 npm install
-npm run dev   # http://localhost:5173
+npm run dev
 ```
 
-## Scripts
+Acesse `http://localhost:5173`. Não há variáveis de ambiente necessárias.
 
-| Comando | Descrição |
+---
+
+## Comandos
+
+```bash
+npm run dev      # Servidor de desenvolvimento em localhost:5173
+npm run build    # Type-check + build de produção em dist/
+npm run lint     # ESLint
+npm run preview  # Servir o build de produção localmente
+```
+
+---
+
+## Atualizar conteúdo
+
+| O que atualizar | Onde |
 |---|---|
-| `npm run dev` | Servidor de desenvolvimento |
-| `npm run build` | Type-check + build de produção em `dist/` |
-| `npm run lint` | ESLint |
-| `npm run preview` | Serve o build de produção localmente |
-
-## Personalização
-
-| O que mudar | Onde |
-|---|---|
-| Skills e ferramentas | `src/data/skills.ts` |
+| Habilidades e nível | `src/data/skills.ts` |
 | Projetos | `src/data/projects.ts` |
-| Textos PT | `src/i18n/pt.json` |
-| Textos EN | `src/i18n/en.json` |
-| Experiência | array `items` em `src/components/Experience.tsx` |
+| Experiência e formação | `src/i18n/pt.json` e `src/i18n/en.json` — chaves `experience.*` |
+| Textos gerais | `src/i18n/pt.json` e `src/i18n/en.json` |
+| Foto de perfil | `public/profile.jpeg` |
+| Currículo | `public/curriculo.pdf` |
 
-## Estrutura
+> [!NOTE]
+> Todo texto novo deve ser adicionado nos dois arquivos de i18n para funcionar nos dois idiomas.
 
+---
+
+## Imagens
+
+Use **WebP** para manter o bundle leve. Para converter:
+
+```bash
+npm install --save-dev sharp
+node -e "require('sharp')('input.png').webp({ quality: 82 }).toFile('output.webp').then(console.log)"
+npm uninstall sharp
 ```
-src/
-├── App.tsx                 Entrada — tema, idioma, layout
-├── components/
-│   ├── Navbar.tsx          Navegação fixa com toggles neumórficos
-│   ├── Hero.tsx            Layout split com cena 3D
-│   ├── Skills.tsx          Grid de skills + ferramentas
-│   ├── Experience.tsx      Layout CV duas colunas
-│   ├── Projects.tsx        Grid de cards com modal
-│   ├── Contact.tsx         Links de contato
-│   └── Footer.tsx          Copyright
-├── hooks/
-│   ├── useTheme.ts         Dark/light mode
-│   ├── useLanguage.ts      i18n PT/EN
-│   └── useSmoothScroll.ts  Lenis
-├── data/
-│   ├── skills.ts           Lista de habilidades
-│   └── projects.ts         Lista de projetos
-└── i18n/
-    ├── pt.json
-    └── en.json
-public/
-├── profile.jpeg
-├── curriculo.pdf
-└── favicon.svg
-```
+
+---
 
 ## Deploy
 
-O site é publicado automaticamente no GitHub Pages a cada push na branch `main` via GitHub Actions.
+O deploy é automático via GitHub Actions a cada push na branch `main`. O workflow faz build com Node 22, roda `npm audit --audit-level=high` e publica em GitHub Pages.
+
+Para deploy manual, suba o conteúdo de `dist/` para qualquer host estático.
+
+> [!WARNING]
+> O `base` em `vite.config.ts` está configurado como `/portfolio/`. Se hospedar em domínio próprio na raiz, altere para `base: '/'`.
