@@ -119,6 +119,7 @@ export function Hero({ t }: HeroProps) {
                   src={`${import.meta.env.BASE_URL}profile.jpeg`}
                   alt="Vitor Carnevalli de Almeida"
                   className="w-full h-full object-cover object-top"
+                  fetchPriority="high"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/30 to-transparent" />
               </div>

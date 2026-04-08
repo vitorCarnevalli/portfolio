@@ -1,6 +1,6 @@
-import andreaNovo from '../assets/andrea-novo.png'
-import andreaAntigo from '../assets/andrea-antigo.png'
-import portfolioPreview from '../assets/portfolio-preview.png'
+import andreaNovo from '../assets/andrea-novo.webp'
+import andreaAntigo from '../assets/andrea-antigo.webp'
+import portfolioPreview from '../assets/portfolio-preview.webp'
 
 export interface Project {
   nameKey: string
