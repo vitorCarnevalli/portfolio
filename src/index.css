@@ -6,15 +6,6 @@
   --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
   --font-heading: 'Syne', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #0066FF;
-  --color-primary-700: #0057d9;
-  --color-accent-400: #60a5fa;
-  --color-accent-500: #3b82f6;
-  --color-accent-600: #0066FF;
 }
 
 html {

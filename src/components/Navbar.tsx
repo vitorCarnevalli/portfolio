@@ -86,7 +86,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A0A0A] dark:focus-visible:outline-[#F0EFE9] ${
                     isActive
                       ? 'text-[#0A0A0A] dark:text-[#F0EFE9]'
                       : 'text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9]'
@@ -112,7 +112,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               onClick={toggleLang}
               aria-label="Toggle language"
               data-hover
-              className="relative flex items-center rounded-full focus:outline-none"
+              className="relative flex items-center rounded-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A0A0A] dark:focus-visible:outline-[#F0EFE9]"
               style={{
                 width: 64,
                 height: 28,
@@ -188,7 +188,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="relative flex items-center rounded-full focus:outline-none"
+              className="relative flex items-center rounded-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A0A0A] dark:focus-visible:outline-[#F0EFE9]"
               style={{
                 width: 52,
                 height: 28,
@@ -215,7 +215,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               />
             </button>
             <button
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-[#6B6B6B] dark:text-[#888]"
+              className="w-11 h-11 flex items-center justify-center rounded-lg border border-[#E5E5E0] dark:border-[#1E1E1E] bg-[#FFFFFF] dark:bg-[#111111] text-[#6B6B6B] dark:text-[#888] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A0A0A] dark:focus-visible:outline-[#F0EFE9]"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
             >
@@ -265,7 +265,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               <button
                 onClick={() => { toggleLang(); setMenuOpen(false); }}
                 aria-label="Toggle language"
-                className="relative flex items-center rounded-full focus:outline-none"
+                className="relative flex items-center rounded-full focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0A0A0A] dark:focus-visible:outline-[#F0EFE9]"
                 style={{
                   width: 64,
                   height: 28,
