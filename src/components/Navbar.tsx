@@ -124,6 +124,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             >
               <motion.div
                 layout
+                layoutDependency={lang}
                 transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                 className="rounded-full absolute"
                 style={{
@@ -167,6 +168,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             >
               <motion.div
                 layout
+                layoutDependency={theme}
                 transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                 className="rounded-full"
                 style={{
@@ -200,6 +202,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
             >
               <motion.div
                 layout
+                layoutDependency={theme}
                 transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                 className="rounded-full"
                 style={{
@@ -277,6 +280,7 @@ export function Navbar({ theme, toggleTheme, lang, toggleLang, t }: NavbarProps)
               >
                 <motion.div
                   layout
+                  layoutDependency={lang}
                   transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                   className="rounded-full absolute"
                   style={{
