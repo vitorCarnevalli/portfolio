@@ -52,7 +52,16 @@
       "name": "Andrea Engenharia",
       "description": "Complete refactoring and modernization of Andrea Engenharia's institutional website. The project involved restructuring the company's outdated digital presence, migrating it to a modern architecture. The main focus was replacing the legacy structure with a faster, responsive interface with better usability for clients."
     },
-    "comingSoon": "Coming soon..."
+    "comingSoon": "Coming soon...",
+    "viewSite": "Visit Site ↗",
+    "viewRepo": "Repository ↗",
+    "viewGithub": "View GitHub ↗",
+    "githubSubtitle": "View all repositories",
+    "slider": {
+      "before": "Before",
+      "after": "After",
+      "hint": "Drag to compare"
+    }
   },
   "contact": {
     "title": "Contact",

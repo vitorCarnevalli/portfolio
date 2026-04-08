@@ -14,6 +14,7 @@ export function useLanguage() {
     setLang(prev => {
       const next = prev === 'pt' ? 'en' : 'pt'
       localStorage.setItem('lang', next)
+      document.documentElement.lang = next === 'pt' ? 'pt-BR' : 'en'
       return next
     })
   }, [])

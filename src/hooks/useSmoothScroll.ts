@@ -13,12 +13,13 @@ export function useSmoothScroll() {
 
     lenisRef.current = lenis
 
+    let rafId: number
     function raf(time: number) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(raf)
     }
 
-    requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(raf)
 
     const onStop = () => lenis.stop()
     const onStart = () => lenis.start()
@@ -26,6 +27,7 @@ export function useSmoothScroll() {
     window.addEventListener('lenis:start', onStart)
 
     return () => {
+      cancelAnimationFrame(rafId)
       window.removeEventListener('lenis:stop', onStop)
       window.removeEventListener('lenis:start', onStart)
       lenis.destroy()

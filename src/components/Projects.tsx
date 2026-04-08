@@ -7,11 +7,12 @@ interface ProjectsProps {
   t: (key: string) => string
 }
 
-function BeforeAfterSlider({ before, after, altBefore, altAfter }: {
+function BeforeAfterSlider({ before, after, altBefore, altAfter, t }: {
   before: string
   after: string
   altBefore: string
   altAfter: string
+  t: (k: string) => string
 }) {
   const [position, setPosition] = useState(50)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -73,7 +74,7 @@ function BeforeAfterSlider({ before, after, altBefore, altAfter }: {
           src={before}
           alt={altBefore}
           className="absolute inset-0 w-full h-full object-cover object-top"
-          style={{ width: `${10000 / position}%`, maxWidth: 'none' }}
+          style={{ width: `${10000 / Math.max(position, 0.1)}%`, maxWidth: 'none' }}
           draggable={false}
         />
       </div>
@@ -108,13 +109,13 @@ function BeforeAfterSlider({ before, after, altBefore, altAfter }: {
         className="absolute top-2 left-2 text-[10px] font-medium px-2 py-0.5 bg-black/50 text-white backdrop-blur-sm"
         style={{ fontFamily: 'var(--font-mono)' }}
       >
-        Antes
+        {t('projects.slider.before')}
       </span>
       <span
         className="absolute top-2 right-2 text-[10px] font-medium px-2 py-0.5 bg-black/50 text-white backdrop-blur-sm"
         style={{ fontFamily: 'var(--font-mono)' }}
       >
-        Depois
+        {t('projects.slider.after')}
       </span>
     </div>
   )
@@ -176,14 +177,15 @@ function ProjectModal({ project, onClose, t }: { project: Project; onClose: () =
             <BeforeAfterSlider
               before={project.beforeImage}
               after={project.coverImage}
-              altBefore={`${t(project.nameKey)} — antes`}
-              altAfter={`${t(project.nameKey)} — depois`}
+              altBefore={`${t(project.nameKey)} — ${t('projects.slider.before')}`}
+              altAfter={`${t(project.nameKey)} — ${t('projects.slider.after')}`}
+              t={t}
             />
             <p
               className="text-[10px] text-[#6B6B6B] dark:text-[#555] mt-1.5 text-center"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-              Arraste para comparar
+              {t('projects.slider.hint')}
             </p>
           </div>
         )}
@@ -227,7 +229,7 @@ function ProjectModal({ project, onClose, t }: { project: Project; onClose: () =
               className="text-xs font-medium px-4 py-2 border border-[#0A0A0A] dark:border-[#F0EFE9] text-[#0A0A0A] dark:text-[#F0EFE9] hover:bg-[#0A0A0A] hover:text-white dark:hover:bg-[#F0EFE9] dark:hover:text-[#0A0A0A] transition-colors"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-              Acessar Site ↗
+              {t('projects.viewSite')}
             </a>
           )}
           {project.repo && (
@@ -238,7 +240,7 @@ function ProjectModal({ project, onClose, t }: { project: Project; onClose: () =
               className="text-xs font-medium px-4 py-2 border border-[#E5E5E0] dark:border-[#1E1E1E] text-[#6B6B6B] dark:text-[#888] hover:border-[#0A0A0A] dark:hover:border-[#F0EFE9] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9] transition-colors"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-              Repositório ↗
+              {t('projects.viewRepo')}
             </a>
           )}
         </div>
@@ -268,6 +270,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
               src={project.coverImage}
               alt={t(project.nameKey)}
               className="w-full h-full object-cover object-top"
+              loading="lazy"
             />
           </div>
         ) : (
@@ -310,7 +313,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
                 className="text-xs text-[#0A0A0A] dark:text-[#F0EFE9] hover:underline underline-offset-2 transition-colors"
                 style={{ fontFamily: 'var(--font-mono)' }}
               >
-                Acessar Site ↗
+                {t('projects.viewSite')}
               </a>
             )}
             {project.repo && (
@@ -322,7 +325,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
                 className="text-xs text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9] hover:underline underline-offset-2 transition-colors"
                 style={{ fontFamily: 'var(--font-mono)' }}
               >
-                Repositório ↗
+                {t('projects.viewRepo')}
               </a>
             )}
           </div>
@@ -338,7 +341,7 @@ function ProjectCard({ project, index, t }: { project: Project; index: number; t
   )
 }
 
-function GitHubCard({ index }: { index: number }) {
+function GitHubCard({ index, t }: { index: number; t: (k: string) => string }) {
   return (
     <motion.a
       href="https://github.com/vitorCarnevalli"
@@ -372,13 +375,13 @@ function GitHubCard({ index }: { index: number }) {
           className="text-xs text-[#6B6B6B] dark:text-[#888] mb-4"
           style={{ fontFamily: 'var(--font-mono)' }}
         >
-          Ver todos os repositórios
+          {t('projects.githubSubtitle')}
         </p>
         <span
           className="text-xs text-[#6B6B6B] dark:text-[#888] hover:text-[#0A0A0A] dark:hover:text-[#F0EFE9] transition-colors"
           style={{ fontFamily: 'var(--font-mono)' }}
         >
-          Ver GitHub ↗
+          {t('projects.viewGithub')}
         </span>
       </div>
     </motion.a>
@@ -411,7 +414,7 @@ export function Projects({ t }: ProjectsProps) {
           {projects.map((project, i) => (
             <ProjectCard key={project.nameKey} project={project} index={i} t={t} />
           ))}
-          <GitHubCard index={projects.length} />
+          <GitHubCard index={projects.length} t={t} />
         </div>
       </div>
     </section>

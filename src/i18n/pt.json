@@ -52,7 +52,16 @@
       "name": "Andrea Engenharia",
       "description": "Refatoração completa e modernização do site institucional da Andrea Engenharia. O projeto consistiu em reestruturar a presença digital antiga da empresa, migrando-a para uma arquitetura moderna. O foco principal foi substituir a estrutura legada por uma interface mais rápida, responsiva e com melhor usabilidade para os clientes."
     },
-    "comingSoon": "Em breve..."
+    "comingSoon": "Em breve...",
+    "viewSite": "Acessar Site ↗",
+    "viewRepo": "Repositório ↗",
+    "viewGithub": "Ver GitHub ↗",
+    "githubSubtitle": "Ver todos os repositórios",
+    "slider": {
+      "before": "Antes",
+      "after": "Depois",
+      "hint": "Arraste para comparar"
+    }
   },
   "contact": {
     "title": "Contato",
