@@ -7,9 +7,9 @@
     "contact": "Contato"
   },
   "hero": {
-    "title": "Desenvolvedor Full Stack",
+    "title": "Desenvolvedor Backend",
     "subtitle": "Campinas, SP · Sistemas de Informação — PUC",
-    "description": "Estudante de SI na PUC — minha curiosidade começou nos videogames e virou obsessão por entender como as coisas funcionam. Hoje aprendendo desenvolvimento na prática e exploro como ferramentas de IA como Claude Code podem tornar o desenvolvimento mais eficiente. Com um problema em mente que ainda não tem solução gratuita: reunir agenda, tarefas e controle de tempo em um único app.",
+    "description": "Estudante de SI na PUC — minha curiosidade começou nos videogames e virou obsessão por entender como as coisas funcionam. Hoje aprendendo desenvolvimento backend na prática e construindo meu próprio projeto: uma plataforma de investimentos.",
     "resume": "Currículo",
     "openToWork": "disponível"
   },
